@@ -20,41 +20,492 @@
     <meta name="format-detection" content="telephone=yes" />
     <meta name="Robots" content="all">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-      <!-- css -->
-      <link rel="stylesheet" href="css/swiper.min.css">
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/jquery.treemenu.min.css">
-      <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <link rel="stylesheet" href="css/main.css">
-      <script src='js/jquery.min.js'></script>
-      <script src="js/swiper.min.js"></script>
-      <script src="js/jquery.treemenu.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/jquery.fancybox.min.js"></script>
-      <script src="js/main.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.treemenu.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src='js/jquery.min.js'></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.treemenu.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
 
     <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="top-box clearfix">
+                        <div class="logo col-lg-6 col-md-6 col-sm-6">
+                            <a href="" title="logo"><img src="images/logo.png" alt=""></a>
+                        </div>
+                        <div class="right col-lg-6 col-md-6 col-sm-6">
+                            <ul class="clearfix">
+                                <!-- wechat -->
+                                <li class="wechat">
+                                    <img src="images/top-wechat.png" alt="">
+                                    <div class="wechat-box"><img src="images/wechat11.png" alt=""></div>
+                                </li>
+                                <!-- share -->
+                                <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                                            src="images/top-facebook.png" alt=""></a></li>
+                                <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                                        rel="nofollow" class=""><img src="images/top-whatsapp.png" alt=""></a></li>
+                                <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                                            src="images/top-linkedin.png" alt=""></a></li>
 
+                                <!-- search -->
+                                <li class="search-form">
+                                    <form action="" method="post">
+                                        <input type="text" placeholder="Search">
+                                        <img src="images/search.png" alt="">
+                                    </form>
+                                </li>
+                                <li class="search">
+                                    <img src="images/search.png" alt="">
+                                </li>
+
+                                <!-- language -->
+                                <li class="language">
+
+                                    <div>
+                                        <img src="images/english.png" alt="">
+                                        <span>EN</span>
+                                    </div>
+                                    <ul class="multilingual">
+                                        <li><a href="" title="english"><img src="images/english.png" alt="">English</a>
+                                        </li>
+                                        <li><a href="" title="españa"><img src="images/españa.png" alt="">España</a>
+                                        </li>
+                                        <li><a href="" title="pоссия"><img src="images/pоссия.png" alt="">Россия</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- nav -->
+        <div class="nav">
+            <div class="container">
+                <div class="row">
+                    <ul class="navbars clearfix">
+                        <li><a href="" title="">HOME</a></li>
+                        <li class="active">
+                            <a href="" title="">MATTRESS MACHINE</a>
+                            <ul class="second-nav">
+                                <li><a href="" title="">Pocket Spring Machine</a></li>
+                                <li><a href="" title="">Bonnell Spring Machine</a></li>
+                                <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
+                                <li><a href="" title="">Mattress Quilting Machine</a></li>
+                                <li><a href="" title="">Mattress Sewing Machine</a></li>
+                                <li><a href="" title="">Mattress Flanging Machine</a></li>
+                                <li><a href="" title="">Mattress Tape Edge Machine</a></li>
+                                <li><a href="" title="">Mattress Packing Machine</a></li>
+                                <li><a href="" title="">Mattress Accessory Machine & Tools</a></li>
+                                <li><a href="" title="">Zig Zag Sofa Spring Machine</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" title="">PU FOAM MACHINE</a></li>
+                        <li><a href="" title="">PILLOW MACHINE</a></li>
+                        <li><a href="" title="">PROJECT SOLUTION</a></li>
+                        <li><a href="" title="">NEWS</a></li>
+                        <li><a href="" title="">ABOUT US</a></li>
+                        <li><a href="" title="">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </header>
 
-    <!-- 路径导航 -->
-    <div class="ljbg">
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Product</li>
-                </ol>
+    <div class="banner">
+        <!-- pc -->
+        <div class="pc-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <!-- start -->
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                    <!-- end -->
+
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!-- wap -->
+        <div class="wap-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.png" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
     </div>
-     
+
+    <div class="index">
+        <div class="container">
+            <div class="row">
+                <!-- new -->
+                <div class="new clearfix">
+                    <!-- start -->
+                    <a href="" title="" class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="box-img"><img src="images/index-news1.png" alt=""></div>
+                        <h5>Lorem Ipsum</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices....</p>
+                        <div class="time">2020.05.20</div>
+                    </a>
+                    <!-- end -->
+
+                    <a href="" title="" class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="box-img"><img src="images/index-news2.png" alt=""></div>
+                        <h5>Lorem Ipsum</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices....</p>
+                        <div class="time">2020.05.20</div>
+                    </a>
+                    <a href="" title="" class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="box-img"><img src="images/index-news3.png" alt=""></div>
+                        <h5>Lorem Ipsum</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices....</p>
+                        <div class="time">2020.05.20</div>
+                    </a>
+                    <a href="" title="" class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="box-img"><img src="images/index-news4.png" alt=""></div>
+                        <h5>Lorem Ipsum</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices....</p>
+                        <div class="time">2020.05.20</div>
+                    </a>
+                </div>
+
+                <!-- product -->
+                <div class="index-product clearfix">
+
+                    <!-- start -->
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro1.png" alt="">
+                        <h5>Mattress Spring Machine</h5>
+                    </a>
+                    <!-- end -->
+
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro2.png" alt="">
+                        <h5>Quilting Machine</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro3.png" alt="">
+                        <h5>Sewing Machine</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro4.png" alt="">
+                        <h5>Mattress Packing Machine</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+
+                        <img src="images/pro-contact.png" alt="">
+                        <div class="boxs">
+                            <div class="borders">
+                                <div class="borders2">
+                                    <h6>Contact Us</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt
+                                        ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
+                                        commodo
+                                        viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <span>Contact Us</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </a>
+
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro5.png" alt="">
+                        <h5>Accessory Machine & Tools</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro6.png" alt="">
+                        <h5>PU Foam Machine</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro7.png" alt="">
+                        <h5>Pillow Machine</h5>
+                    </a>
+                    <a href="" title="" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="images/index-pro8.png" alt="">
+                        <h5>Project Solution</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- about -->
+        <div class="index-about">
+            <div class="container">
+                <div class="row">
+
+                    <h3>About us</h3>
+                    <div class="title">Foam And Mattress Production Project Expert Start Your Online Factory
+                        Tour</div>
+                    <div class="content clearfix">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+
+                                    <!-- start -->
+                                    <div class="swiper-slide">
+                                        <img src="images/index-about2.png" alt="">
+                                    </div>
+                                    <!-- end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="images/index-about2.png" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/index-about2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="txt col-lg-5 col-md-5 col-sm-5">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                                ipsum suspendisse ultrices gravida. Risus </p>
+                            <a href="" title="">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service -->
+        <div class="index-service">
+            <div class="container">
+                <div class="row">
+                    <h3>Service</h3>
+                    <div class="title">As an all-rounded supplier for foam and mattress manufacturers, we devote
+                        ourselves to</div>
+                    <div class="list clearfix">
+                        <div class="images col-lg-5 col-md-5 col-sm-5"><img src="images/index-service.png" alt=""></div>
+                        <div class="txt col-lg-7 col-md-7 com-sm-7">
+                            <ul>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico1.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">Improve mattress production
+                                        efficiency
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico2.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10  col-xs-9">Reduce growing labor cost</div>
+                                </li>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico3.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10  col-xs-9">Make faster turnaround on
+                                        orders with
+                                        more diversity in new mattress designs</div>
+                                </li>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico2.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10  col-xs-9">Save much more storage
+                                        space and transportation cost</div>
+                                </li>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico3.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10  col-xs-9">Make some innovations in
+                                        mattress production technologies</div>
+                                </li>
+                                <li>
+                                    <div class="icos col-lg-2 col-md-2 col-sm-2 col-xs-3"><img
+                                            src="images/index-sico2.png" alt=""></div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">Complete more automated foam
+                                        and mattress factory solution</div>
+                                </li>
+                            </ul>
+                            <div class="box clearfix">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="index-certificate">
+            <div class="container">
+                <div class="row">
+                    <h3>Certificate</h3>
+                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+                    <!-- pc -->
+                    <div class="certificate-pc">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+                                <!-- start -->
+                                <div class="swiper-slide">
+                                    <img src="images/certificate.png" alt="">
+                                </div>
+                                <!-- end -->
+
+                                <div class="swiper-slide">
+                                    <img src="images/certificate2.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/certificate.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/certificate2.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <!-- wap -->
+                    <div class="certificate-wap">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+                                <!-- start -->
+                                <div class="swiper-slide">
+                                    <img src="images/certificate.png" alt="">
+                                </div>
+                                <!-- end -->
+
+                                <div class="swiper-slide">
+                                    <img src="images/certificate2.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/certificate.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/certificate2.png" alt="">
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- wap -->
+
+        </div>
+
+
+    </div>
+
     <footer>
+
+        <!-- footer-nav -->
+        <div class="footer-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h5>Product</h5>
+                        <ul>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h5>News</h5>
+                        <ul>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h5>About Us</h5>
+                        <ul>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
+                        <a href="" class="footer-logo"><img src="images/footer-logo.png" alt=""></a>
+                        <p>NINGBO LADETECH MATTRESS MACHINERY CO., LTD </p>
+                        <ul class="footer-share">
+                            <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                                        src="images/footer-facebook.png" alt=""></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                                    rel="nofollow" class=""><img src="images/footer-whatsapp.png" alt=""></a></li>
+                            <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                                        src="images/footer-linkedin.png" alt=""></a></li>
+                            <li class="wechats">
+                                <a href="javascript:;">
+                                    <img src="images/footer-wechat.png" alt="">
+                                    <div class="wechats-box"><img src="images/wechat11.png" alt=""></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="copy">NINGBO LADETECH MATTRESS MACHINERY CO., LTD</div>
+                </div>
+            </div>
+
+        </div>
+
         <!-- 右侧悬浮表单 -->
         <div class="float-form">
             <div class="show-btn" style="display: block;">
@@ -93,9 +544,70 @@
                 </form>
             </div>
         </div>
-        <div class="goTop">
+        <!-- <div class="goTop">
             <i class="topIcon"></i>
             <p>TOP</p>
+        </div> -->
+
+        <!-- 右侧导航 -->
+        <div class="index-contact">
+            <div class="index-contact-item-block index-contact-top">
+                <div class="index-contact-item flex-col">
+                    <div class="goTop">
+                        <i class="topIcon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="index-contact-item-block index-contact-in transition index-contact-wx">
+                <a href="javascript:void(0);" class="one-pan-link-mark">
+                    <div class="index-contact-item flex-col">
+                        <div class="img-block">
+                            <img src="images/weixin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="index-contact-item-in">
+                        <p class="index-contact-item-in-p transition flex-col" style="">
+                            Wechat QR code</p>
+                    </div>
+                </a>
+                <div class="index-contact-qr-show" style="display: none;">
+                    <div class="img-block">
+                        <img src="images/wechat11.png" alt="wechat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="index-contact-item-block index-contact-in transition index-contact-tel">
+                <a href="tel:0757-83680580" target="_blank" class="one-pan-link-mark">
+                    <div class="index-contact-item flex-col">
+                        <div class="img-block">
+                            <img src="images/dianhua.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="index-contact-item-in">
+                        <p class="index-contact-item-in-p transition">0757-83680580</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="index-contact-item-block index-contact-in transition index-contact-online">
+                <a href="javascript:void(0);" class="shangqiao a_baidu_window zixun_count one-pan-link-mark" zixun="bd">
+                    <div class="index-contact-item flex-col">
+                        <div class="img-block">
+                            <img src="images/kefu.png" alt="">
+                        </div>
+                    </div>
+                    <div class="index-contact-item-in">
+                        <p class="index-contact-item-in-p transition zixun_count" zixun="bd">建站在线咨询</p>
+                    </div>
+                </a>
+
+            </div>
+
+
+
+
         </div>
     </footer>
 </body>
