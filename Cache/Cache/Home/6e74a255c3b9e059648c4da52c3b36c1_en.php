@@ -99,13 +99,16 @@
             <div class="container">
                 <div class="row">
                     <ul class="navbars clearfix">
-                        <li><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
+                        <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
                         <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?>">
                             <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
                             <?php if($r[child] == 1) : ?>
                             <ul class="second-nav">
                                 <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
-                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?></a>
+                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                    </a>
+                                    <?php if($rs[child] == 1) : ?> <i class="fa fa-angle-right"></i><?php endif;?> 
+                                   
                                     <?php if($rs[child] == 1) : ?>
                                         <ul class="three-nav">
                                             <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>

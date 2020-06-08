@@ -349,7 +349,7 @@ img {
 
 /* 路径导航 */
 .ljbg {
-    background-color: #ececec;
+
     margin-bottom: 30px;
     margin-top: 200px;
 }
@@ -358,6 +358,9 @@ img {
     background-color: transparent;
     margin-bottom: 0;
     padding: 15px 0;
+    margin: 0 12px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 1px;
 }
 
 .ljbg .breadcrumb {
@@ -623,7 +626,7 @@ header .nav .second-nav li:last-child a::after {
 }
 
 header .nav .second-nav li a:hover {
-    color: #17439a;
+    color: #fe5952;
 }
 
 header .nav .three-nav {
@@ -646,7 +649,7 @@ header .nav .fa {
 }
 
 header .nav .second-nav li:hover .fa {
-    color: #144090;
+    color: #fe5952;
 }
 
 /* .navbar-fixed-top .top-bar {
@@ -1147,7 +1150,7 @@ footer .footer-nav .copy {
 
 .index-contact {
     position: fixed;
-    right: 20px;
+    right: 60px;
     top: 50%;
     transform: translateY(-50%);
     padding: 50px 0;
