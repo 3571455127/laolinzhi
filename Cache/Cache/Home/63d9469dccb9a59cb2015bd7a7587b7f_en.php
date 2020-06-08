@@ -132,7 +132,7 @@
             <div class="row">
                 <ol class="breadcrumb">
                     <li><a href="/index.php?l=<?php echo (LANG_SET); ?>">Home</a></li>
-                    <li class="active">News</li>
+                    <li class="active"><?php echo ($catname); ?></li>
                 </ol>
             </div>
         </div>
@@ -616,48 +616,23 @@
         <div class="footer-nav">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>Product</h5>
+                    <?php $n=0;foreach($Categorys as $key=>$r):if($n<100) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))): ?><div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h5><?php echo ($r["catname"]); ?></h5>
+                        <?php if($r[child] == 1) : ?>
                         <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li><a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>" target="_blank"><?php echo (str_cut($rs["catname"],25,'..')); ?></a></li><?php endif; endif; endforeach;?>
                         </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>News</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>About Us</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
+                        <?php endif;?>
+                    </div><?php endif; endif; endif; endforeach;?>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
                         <a href="" class="footer-logo"><img src="__PUBLIC__/www/images/footer-logo.png" alt=""></a>
-                        <p>NINGBO LADETECH MATTRESS MACHINERY CO., LTD </p>
+                        <p><?php echo ($name); ?></p>
                         <ul class="footer-share">
-                            <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="<?php echo ($facebook); ?>" title="facebook" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-facebook.png" alt=""></a></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                            <li><a href="https://api.whatsapp.com/send?phone=86<?php echo ($whatsapp); ?>" title="" target="_blank"
                                     rel="nofollow" class=""><img src="__PUBLIC__/www/images/footer-whatsapp.png" alt=""></a></li>
-                            <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="<?php echo ($ins); ?>" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-linkedin.png" alt=""></a></li>
                             <li class="wechats">
                                 <a href="javascript:;">
@@ -667,7 +642,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="copy">NINGBO LADETECH MATTRESS MACHINERY CO., LTD</div>
+                    <div class="copy"><?php echo ($cop); ?></div>
                 </div>
             </div>
 
@@ -684,7 +659,7 @@
                 <p>Commissioner one-on-one service</p>
                 <form name="form" method="post" action="index.php?g=Home&amp;a=message"
                     onsubmit="return beforeSubmit2(this);" id="user_form2">
-                    <input name="forward" type="hidden" value="www.acousticcn.com/index.php">
+            <input name="forward" type="hidden" value="<?php echo ($_SERVER['SERVER_NAME']); if($catid) : ?>/index.php?m=<?php echo ($Categorys[$catid]['module']); ?>&a=index&id=<?php echo ($catid); else :?>/index.php<?php endif;?>"/>
                     <div class="showFormBacColor">
                         <div class="form-line01">
                             <input type="text" name="name" placeholder="Youre Name">

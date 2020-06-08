@@ -126,148 +126,77 @@
 
         </div>
     </header>
+<!-- 
+<div class="mianbao">
+    <div class="mb_dao">
+        <img src="__PUBLIC__/www/images/home-icon.png" alt="" onclick="window.open('http://<?php echo $_SERVER['HTTP_HOST']?>','_self');" />
+    </div>
+</div>
 
-
-    <div class="banner">
-        <!-- pc -->
-        <div class="pc-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-<?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
-                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                </a>
-                    </div>
-                    <!-- end --><?php endforeach; endif;?>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-
-        <!-- wap -->
-        <div class="wap-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-<?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
-                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                </a>
-                    </div>
-                    <!-- end --><?php endforeach; endif;?>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
+<div class="contact" style="background: #ffffff;margin-top: 150px;padding: 80px 0">
+    <h4 style="height: 30px;">Thanks for your inquiry!</h4>
+    <div class="contact_center">
+        <div class="center_left" style="text-align: center;width: 100%;">
+            <p>Our Professional Team Will Contact With You In 24 Hours.</p>
         </div>
 
     </div>
-
-    <div class="index">
-        <div class="container">
-            <div class="row">
-                <!-- new -->
-                <div class="new clearfix">
-                    <?php  $_result=M("Article")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=112  AND posid =1")->order("listorder desc")->limit("4")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="box-img"><img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>"></div>
-                        <h5><?php echo (str_cut($r["title"],30,'...')); ?></h5>
-                        <p><?php echo (str_cut($r["description"],120,'...')); ?></p>
-                        <div class="time"><?php echo (todate($r["createtime"],'Y.m.d')); ?></div>
-                    </a>
-                    <!-- end --><?php endforeach; endif;?> 
-                    
-                </div>
-
-                <!-- product -->
-                <div class="index-product clearfix">
-                    <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=1 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
-                        <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                        <?php if($r['description']) : ?>
-                        <div class="boxs">
-                            <?php echo ($r["description"]); ?>
-                        </div>
-                        <?php else :?>
-                        <h5><?php echo ($r["title"]); ?></h5>
-                        <?php endif;?>
-                    </a>
-                    
-                    <!-- end --><?php endforeach; endif;?>
-                </div>
-            </div>
-        </div>
-
-        <!-- about -->
-        <div class="index-about">
-            <div class="container">
-                <div class="row">
-<?php getcatvar('page','id = 113','sycont');?>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service -->
-        <div class="index-service">
-            <div class="container">
-                <div class="row">
-<?php getcatvar('page','id = 77','sycont');?>                   
-                </div>
-            </div>
-        </div>
-
-        <!-- Certificate -->
-        <div class="index-certificate">
-            <div class="container">
-                <div class="row">
-                    <h3>Certificate</h3>
-                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-
-                    <!-- pc -->
-                    <div class="certificate-pc">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-<?php  $_result=M("Certificate")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=194")->order("listorder desc")->limit("10")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                                <div class="swiper-slide">
-                                    <img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                                </div>
-                                <!-- end --><?php endforeach; endif;?>
-                            </div>
-
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-
-                    <!-- wap -->
-                    <div class="certificate-wap">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-
-<?php  $_result=M("Certificate")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=194")->order("listorder desc")->limit("10")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                                <div class="swiper-slide">
-                                    <img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                                </div>
-                                <!-- end --><?php endforeach; endif;?>
-
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- wap -->
-
-        </div>
-
-
+    <div class="map_div">
+        <iframe src="http://www.google.cn/maps/embed?pb=!1m18!1m12!1m3!1d3677.8552198953444!2d113.23522731543332!3d22.807827985062172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340248e1962a1313%3A0x32246cb8177d4ac2!2z5bm_5Lic55yB5L2b5bGx5biC6aG65b635Yy66L-e5a6J57q_!5e0!3m2!1szh-CN!2scn!4v1539765743992" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 
+</div>
+<div class="top_img">
+  <img src="__PUBLIC__/www/images/product_bander.jpg" alt="" />
+</div> -->
+
+<div class="thank">
+    <div class="container">
+        <div class="row">
+            <h5>Thanks for your inquiry!</h5>
+            <p>Our Professional Team Will Contact With You In 24 Hours</p>
+            <a class="link" href="/" onclick="history.go(-1)"><span id="sec">5</span>s Back Home</a>
+            <img class="back" src="__PUBLIC__/www/images/back.png" alt="back" onClick="javascript :history.go(-1);" />
+        </div>
+    </div>
+</div>
+<style>
+    .thank {
+        margin: 300px 0 120px 0;
+        text-align: center;
+    }
+
+    .thank h5,
+    .thank p {
+        line-height: 1.4;
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+
+    .thank .back {
+        padding-left: 10px;
+        width: 32px;
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+</style>
+<script src="__PUBLIC__/www/js/jquery.js"></script>
+<script>
+    $(function () {
+        setTimeout("lazyGo();", 1000);
+    });
+
+    function lazyGo() {
+        var sec = $("#sec").text();
+        $("#sec").text(--sec);
+        if (sec > 0)
+            setTimeout("lazyGo();", 1000);
+        else
+
+            javascript: history.back(-1);
+    }
+</script>
 
     <footer>
 
