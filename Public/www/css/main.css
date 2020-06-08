@@ -626,7 +626,7 @@ header .nav .second-nav li:last-child a::after {
 }
 
 header .nav .second-nav li a:hover {
-    color: #fe5952;
+    color: #ff6550;
 }
 
 header .nav .three-nav {
@@ -649,7 +649,7 @@ header .nav .fa {
 }
 
 header .nav .second-nav li:hover .fa {
-    color: #fe5952;
+    color: #ff6550;
 }
 
 /* .navbar-fixed-top .top-bar {
@@ -1450,7 +1450,7 @@ footer .footer-nav .copy {
 .product .product-list .product-btn .btn2,
 .product-recommend .product-swiper .product-btn .btn2 {
     margin-left: 2%;
-    background-color: #fe5952;
+    background-color: #144090;
     color: #fff;
 }
 
@@ -1464,6 +1464,7 @@ footer .footer-nav .copy {
 
 .modal .modal-content {
     padding: 30px;
+    margin-top: 80px;
 }
 
 .modal .modal-title {
@@ -1623,7 +1624,7 @@ textarea::-webkit-input-placeholder {
 
 .pagingClick span {
     color: #fff;
-    background-color: #fe5952;
+    background-color: #144090;
 }
 
 .product-recommend .title {
@@ -1959,7 +1960,7 @@ textarea::-webkit-input-placeholder {
 
 .pagingClick span {
     color: #fff;
-    background-color: #fe5952;
+    background-color: #144090;
 }
 
 /* 分页 */
@@ -2368,7 +2369,7 @@ textarea::-webkit-input-placeholder {
     width: 50px;
     height: 3px;
     line-height: 3px;
-    background: #3c7358;
+    background: #144090;
     position: absolute;
     bottom: -20px;
     left: 50%;
@@ -2419,7 +2420,7 @@ textarea::-webkit-input-placeholder {
     width: 50px;
     height: 3px;
     line-height: 3px;
-    background: #3c7358;
+    background: #144090;
     position: absolute;
     bottom: -20px;
     left: 50%;
@@ -2479,7 +2480,7 @@ textarea::-webkit-input-placeholder {
     line-height: 1.42857;
     margin-left: -1px;
     text-decoration: none !important;
-    background-color: #3c7358;
+    background-color: #144090;
     white-space: nowrap;
     padding: 4px 4px 4px 20px;
 }
@@ -2534,15 +2535,15 @@ textarea::-webkit-input-placeholder {
 }
 
 .contact .nav-tabs>li>a:hover {
-    background-color: rgb(255, 210, 0);
+    background-color: #144090;
 }
 
 .contact .nav-tabs>li.active>a,
 .contact .nav-tabs>li.active>a:focus,
 .contact .nav-tabs>li.active>a:hover {
-    background-color: rgb(255, 210, 0);
-    color: #333;
-    border-color: rgb(255, 210, 0);
+    background-color: #144090;
+    color: #fff;
+    border-color: #144090;
     border-radius: 0px !important;
     border-bottom: none;
 }
@@ -2799,7 +2800,7 @@ textarea::-webkit-input-placeholder {
 
 .product-show .left button {
     border: none;
-    background-color: #ff6550;
+    background-color: #144090;
     color: #fff;
     padding: 10px;
     width: 12%;
@@ -2810,7 +2811,7 @@ textarea::-webkit-input-placeholder {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    border-left: 5px solid #ff6550;
+    border-left: 5px solid #144090;
     padding-left: .5em;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -2855,7 +2856,7 @@ textarea::-webkit-input-placeholder {
     color: #fff;
     background-color: #fff;
     text-align: center;
-    background-color: #ff6550;
+    background-color: #144090;
     margin-top: -12px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -2885,7 +2886,7 @@ textarea::-webkit-input-placeholder {
     margin-right: 12px;
     display: inline-block;
     width: 10px;
-    color: #ff6550;
+    color: #144090;
 }
 
 .product-show .dg-list-items {
@@ -2954,7 +2955,7 @@ textarea::-webkit-input-placeholder {
 }
 
 #showsum span.sel {
-    border: 1px solid #f60;
+    border: 1px solid #144090;
 }
 
 #showsum img {
@@ -3043,7 +3044,7 @@ hr {
 
 .dg-btn.dg-theme {
     color: #fff;
-    background-color: #ff6550;
+    background-color: #144090;
 }
 
 .product-show .right .layout-content {
@@ -3066,8 +3067,8 @@ hr {
 .product-show .right .layout-content .active a {
     background-color: #fff;
     border-bottom-color: #fff;
-    border-top-color: #ff6550;
-    color: #ff6550;
+    border-top-color: #144090;
+    color: #144090;
 }
 
 .product-show .right .layout-content .tab-content {
