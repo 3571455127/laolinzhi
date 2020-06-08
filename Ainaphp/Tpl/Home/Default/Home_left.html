@@ -1,0 +1,65 @@
+<div class="left col-lg-4 col-md-4 col-sm-4">
+                    <form action="/search/product" method="GET">
+                        <input class="search" type="search" placeholder="Search..." name="keyword">
+                        <button type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <h2 class="dg-sider-title">{$Categorys[$bcid][catname]}</h2>
+
+                    <div class="sidebar-nav">
+                        <ul class="first-nav">
+                            <YP:subcat catid="$bcid" id="r" where="listorder asc" limit="100" key="n">                           
+                            <!-- start -->
+                            <li class=" {if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}#menui{$r[id]}{else}{$r.url}{/if}" {if $r[child]==1}data-toggle="collapse"{/if}>{$r.catname}
+                                   {if $r[child]==1} <i class="fa fa-angle-right"></i>{/if}
+                                </a>
+                                 {if $r[child] == 1}
+                                <div id="menui{$r[id]}" class="collapse">
+                                    <ul class="second-nav">
+                                        <YP:subcat catid="$r[id]" id="rs">
+                                        <li class="{if $parentid==$rs[id]}afinve active{/if} {if $catid==$rs[id]}active{/if}">
+                                            <a href="{if $rs[child]==1}#menui{$rs[id]}{else}{$rs.url}{/if}" {if $rs[child]==1}data-toggle="collapse"{/if}>{$rs.catname}
+                                                {if $rs[child]==1}<i class="fa fa-angle-right"></i>{/if}
+                                            </a>
+                                            {if $rs[child]==1}
+                                            <div id="menui{$rs[id]}" class="collapse">
+                                                <YP:subcat catid="$rs[id]" id="rss" limit="10" key="nnn">
+                                                <a href="{$rss.url}">{$rss.catname}</a> 
+                                                </YP:subcat>
+                                            </div>
+                                            {/if}
+                                        </li>
+                                        </YP:subcat>
+                                    </ul>
+                                </div>
+                                 {/if}
+                            </li>
+                            <!-- end -->
+                            </YP:subcat> 
+
+
+
+                        </ul>
+                    </div>
+
+                    <h2 class="dg-sider-title">Hot Product</h2>
+
+                    <ul class="dg-list-items">
+<YP:list order="listorder desc" name="Product" id="r" posid="1" limit="5">  
+                        <!-- start -->
+                        <li class="dg-item">
+                            <div class="dg-image">
+                                <img src="{$r.thumb}" alt="{$r.title}" class="src">
+                            </div>
+                            <div class="dg-content">
+                                <h3 class="dg-title"><a href="{$r.url}" title="{$r.title}" >{$r.title|str_cut=###,30,'...'}</a></h3>
+                            </div>
+                        </li>
+                        <!-- end -->
+</YP:list>
+
+                    </ul>
+
+                </div>

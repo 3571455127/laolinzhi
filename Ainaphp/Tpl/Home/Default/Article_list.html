@@ -1,0 +1,38 @@
+<include file="Home:path" />
+
+    <!-- NEWs-list -->
+    <div class="news">
+        <div class="news-box container">
+            <div class="row">
+                <div class="clearfix">
+                    <div class="left col-lg-9 col-md-9 col-sm-12">
+                        <ul>
+<volist name="list" id="r">
+                            <!-- start -->
+                            <li><a href="{$r.url}" title="{$r.title}">
+                                    <img src="{$r.thumb}" alt="{$r.title}">
+                                    <h6>{$r.title|str_cut=###,30,'...'}</h6>
+                                    <p>{$r.description|str_cut=###,350,'...'}</p>
+                                    <div class="time clearfix">
+                                        <span>{$r.createtime|toDate=###,'d'} {$r.createtime|toDate=###,'M'} {$r.createtime|toDate=###,'Y'}</span>
+                                        <span>READ MORE</span>
+                                    </div>
+                                </a></li>
+                            <!-- end -->
+</volist>
+
+                        </ul>
+                        <!--分页按钮-->
+                         <div class="row" style="margin: 3% 0 5% 0">
+                            <div class="col-xs-12 text-center pagingClick">
+                                {$pages}
+                            </div>
+                        </div> 
+
+                    </div>
+                    <include file="Home:right" />
+                </div>
+
+            </div>
+        </div>
+    </div>

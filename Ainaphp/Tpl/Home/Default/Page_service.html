@@ -1,0 +1,53 @@
+<include file="Home:path" />
+
+    <!-- service -->
+    <div class="service">
+        <div class="container">
+            <div class="row">
+                <div class="left col-lg-4 col-md-4 col-sm-4">
+                    <div class="list">
+                        <div class="sidebar-nav">
+                            <ul class="first-nav">
+                               <YP:subcat catid="0" id="r" where="listorder asc" limit="100" key="n">    
+                                <if condition="$r[catname] neq 'THANKS'  && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))">                       
+                            <!-- start -->
+                            <li class=" {if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}#menui{$r[id]}{else}{$r.url}{/if}" {if $r[child]==1}data-toggle="collapse"{/if}>{$r.catname}
+                                   {if $r[child]==1} <i class="fa fa-angle-right"></i>{/if}
+                                </a>
+                                 {if $r[child] == 1}
+                                <div id="menui{$r[id]}" class="collapse">
+                                    <ul class="second-nav">
+                                        <YP:subcat catid="$r[id]" id="rs">
+                                        <li class="{if $parentid==$rs[id]}afinve active{/if} {if $catid==$rs[id]}active{/if}">
+                                            <a href="{if $rs[child]==1}#menui{$rs[id]}{else}{$rs.url}{/if}" {if $rs[child]==1}data-toggle="collapse"{/if}>{$rs.catname}
+                                                {if $rs[child]==1}<i class="fa fa-angle-right"></i>{/if}
+                                            </a>
+                                            {if $rs[child]==1}
+                                            <div id="menui{$rs[id]}" class="collapse">
+                                                <YP:subcat catid="$rs[id]" id="rss" limit="10" key="nnn">
+                                                <a href="{$rss.url}">{$rss.catname}</a> 
+                                                </YP:subcat>
+                                            </div>
+                                            {/if}
+                                        </li>
+                                        </YP:subcat>
+                                    </ul>
+                                </div>
+                                 {/if}
+                            </li>
+                            <!-- end -->
+                            </if>
+                            </YP:subcat> 
+                            </ul>
+                        </div>
+                        {$serviceleft}
+                    </div>
+                </div>
+                <div class="right col-lg-8 col-md-8 col-sm-8">
+                    {$cont}
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 

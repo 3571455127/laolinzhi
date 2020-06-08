@@ -1,0 +1,474 @@
+<include file="Home:path" />
+
+    <div class="product">
+        <div class="container">
+            <div class="row">
+                <div class="product-top">
+                    <h3>h3. Bootstrap heading <small>Secondary text</small></h3>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                </div>
+                <div class="product-list clearfix">
+                    <div class="left col-lg-9 col-md-9">
+<volist name="list" id="r">
+                        <div class="box clearfix">
+                            <div class="image col-lg-5 col-md-5">
+                                <a href="{$r.url}" title="{$r.title}"><img src="{$r.thumb}" alt="{$r.title}"></a>
+                            </div>
+                            <div class="txt col-lg-7 col-md-7">
+                                <h3><a href="{$r.url}" title="{$r.title}">{$r.title|str_cut=###,30,'...'}</a>
+                                </h3>
+                                {$r.jianjie}
+
+                                <div class="product-btn clearfix">
+                                    <div type="button" class="btn1" data-toggle="modal" data-target="#myModal"> Quick
+                                        Inquiry
+                                    </div>
+                                    <a href="{$r.url}" title="{$r.title}" class="btn2"> View Details</a>
+
+                                </div>
+                            </div>
+                        </div>
+</volist>
+
+                        <!-- 分页按钮-->
+                         <div class="row" style="margin: 3% 0 5% 0">
+                        <div class="col-xs-12 text-center pagingClick">
+                            {$pages}
+                        </div>
+                    </div> 
+
+                        <!-- 弹窗表单 -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Quick Inquiry</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="clearfix" method="post" action="index.php?g=Home&amp;a=message"
+                                            onsubmit="return beforeSubmit2(this);">
+                                            <div class="modal-box">
+                                                <p>Name: </p>
+                                                <input placeholder="Name" type="text" name="name">
+                                            </div>
+                                            <div class="modal-box">
+                                                <p>E-mail: </p>
+                                                <input placeholder="Email" type="text" name="email">
+                                            </div>
+                                            <div class="modal-box">
+                                                <p>Phone Number:</p>
+                                                <input placeholder="Phone" type="text" name="phone">
+                                            </div>
+                                            <div class="modal-box">
+                                                <p>Consulting Information:</p>
+                                                <textarea rows="3"
+                                                    placeholder="Please enter your consulting information."
+                                                    name="message"></textarea>
+                                            </div>
+                                            <input type="submit" value="Send Inquiry" class="footer-sub">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right col-lg-3 col-md-3">
+                        <!-- 搜索 -->
+                        <div class="aside-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-primary" type="button">button</button>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- 导航 -->
+                        <div class="right-nav">
+                            <div class="aside-munu">
+                                <ul id="asideMenu" class="list-group">
+                                    <li class="list-group-item"><a title="Continuous (Superlastic) Spring Machine" href="#">Continuous (Superlastic) Spring Machine</a></li>
+                                    <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                    <li class="list-group-item">
+                                        <a href="#">Porta ac consectetur ac</a>
+                                        <ul class="list-group sub-group">
+                                            <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                                            <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                                            <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                            <li class="list-group-item">
+                                                <a href="#">Porta ac consectetur ac</a>
+                                            </li>
+                                            <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                                            <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                                            <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                                    <li class="list-group-item">
+                                        <a href="#">Dapibus ac facilisis in</a>
+                                        <ul class="list-group sub-group">
+                                            <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                                            <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                                            <li class="list-group-item">
+                                                <a href="#">Morbi leo risus</a>
+                                                <ul class="list-group sub-group">
+                                                    <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                                                    <li class="list-group-item"><a href="#">Dapibus ac facilisis
+                                                            in</a></li>
+                                                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                                    <li class="list-group-item">
+                                                        <a href="#">Porta ac consectetur ac</a>
+                                                    </li>
+                                                    <li class="list-group-item"><a href="#">Vestibulum at eros</a>
+                                                    </li>
+                                                    <li class="list-group-item"><a href="#">Dapibus ac facilisis
+                                                            in</a></li>
+                                                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="#">Porta ac consectetur ac</a>
+                                            </li>
+                                            <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                                            <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                                            <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                                </ul>
+                                <script>
+                                    $("#asideMenu").treemenu({
+                                        'delay': 200,
+                                        'closeOther': true,
+                                        'openActive': true
+                                    });
+                                </script>
+                            </div>
+
+                        </div>
+                        <!-- 推荐列表 -->
+                        <div class="aside-product">
+                            <a href="" class="media">
+                                <div class="box-img">
+                                    <img src="Public/www/images/pro1.png" alt="">
+                                </div>
+                                <p>Nested media heading</p>
+                            </a>
+                            <a href="" class="media">
+                                <div class="box-img">
+                                    <img src="Public/www/images/pro2.png" alt="">
+                                </div>
+                                <p>Nulla vel metus scelerisque ante sollicitudin commodo</p>
+                            </a>
+                            <a href="" class="media">
+                                <div class="box-img">
+                                    <img src="Public/www/images/pro3.png" alt="">
+                                </div>
+                                <p>Cras sit amet nibh libero, in gravida nulla</p>
+                            </a>
+                            <a href="" class="media">
+                                <div class="box-img">
+                                    <img src="Public/www/images/pro4.png" alt="">
+                                </div>
+                                <p>Donec lacinia congue felis in faucibus.</p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+                <!-- 相关推荐轮播 -->
+                <div class="product-recommend">
+                    <div class="title">Recommend Products</div>
+                    <div class="product-swiper">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="box clearfix">
+                                        <div class="image col-lg-5">
+                                            <a href="" target="_blank"><img src="Public/www/images/pro1.png" alt=""></a>
+                                        </div>
+                                        <div class="txt col-lg-7">
+                                            <h3><a href="#" target="_blank">Nullam id dolor id nibh ultricies id nibh
+                                                    ultricies</a>
+                                            </h3>
+                                            <table class="table-bordered table-condensed" style="width:100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Model
+                                                        </td>
+                                                        <td>
+                                                            DW-UIFD01
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Price
+                                                        </td>
+                                                        <td>
+                                                            $86
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Material
+                                                        </td>
+                                                        <td>
+                                                            stainless steel
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Voltage
+                                                        </td>
+                                                        <td>
+                                                            12v/220v
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Size
+                                                        </td>
+                                                        <td>
+                                                            100x146x30 (mm)
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="product-btn clearfix">
+                                                <div type="button" class="btn1" data-toggle="modal"
+                                                    data-target="#myModal">
+                                                    Quick
+                                                    Inquiry
+                                                </div>
+                                                <a href="" target="" class="btn2"> View Details</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box clearfix">
+                                        <div class="image col-lg-5">
+                                            <a href="" target="_blank"><img src="Public/www/images/pro2.png" alt=""></a>
+                                        </div>
+                                        <div class="txt col-lg-7">
+                                            <h3><a href="#" target="_blank">Nullam id dolor id nibh ultricies id nibh
+                                                    ultricies</a>
+                                            </h3>
+                                            <table class="table-bordered table-condensed" style="width:100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Model
+                                                        </td>
+                                                        <td>
+                                                            DW-UIFD01
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Price
+                                                        </td>
+                                                        <td>
+                                                            $86
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Material
+                                                        </td>
+                                                        <td>
+                                                            stainless steel
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Voltage
+                                                        </td>
+                                                        <td>
+                                                            12v/220v
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Size
+                                                        </td>
+                                                        <td>
+                                                            100x146x30 (mm)
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="product-btn clearfix">
+                                                <div type="button" class="btn1" data-toggle="modal"
+                                                    data-target="#myModal">
+                                                    Quick
+                                                    Inquiry
+                                                </div>
+                                                <a href="" target="" class="btn2"> View Details</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box clearfix">
+                                        <div class="image col-lg-5">
+                                            <a href="" target="_blank"><img src="Public/www/images/pro3.png" alt=""></a>
+                                        </div>
+                                        <div class="txt col-lg-7">
+                                            <h3><a href="#" target="_blank">Nullam id dolor id nibh ultricies id nibh
+                                                    ultricies</a>
+                                            </h3>
+                                            <table class="table-bordered table-condensed" style="width:100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Model
+                                                        </td>
+                                                        <td>
+                                                            DW-UIFD01
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Price
+                                                        </td>
+                                                        <td>
+                                                            $86
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Material
+                                                        </td>
+                                                        <td>
+                                                            stainless steel
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Voltage
+                                                        </td>
+                                                        <td>
+                                                            12v/220v
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Size
+                                                        </td>
+                                                        <td>
+                                                            100x146x30 (mm)
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="product-btn clearfix">
+                                                <div type="button" class="btn1" data-toggle="modal"
+                                                    data-target="#myModal">
+                                                    Quick
+                                                    Inquiry
+                                                </div>
+                                                <a href="" target="" class="btn2"> View Details</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box clearfix">
+                                        <div class="image col-lg-5">
+                                            <a href="" target="_blank"><img src="Public/www/images/pro4.png" alt=""></a>
+                                        </div>
+                                        <div class="txt col-lg-7">
+                                            <h3><a href="#" target="_blank">Nullam id dolor id nibh ultricies id nibh
+                                                    ultricies</a>
+                                            </h3>
+                                            <table class="table-bordered table-condensed" style="width:100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Model
+                                                        </td>
+                                                        <td>
+                                                            DW-UIFD01
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Price
+                                                        </td>
+                                                        <td>
+                                                            $86
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Material
+                                                        </td>
+                                                        <td>
+                                                            stainless steel
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Voltage
+                                                        </td>
+                                                        <td>
+                                                            12v/220v
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Size
+                                                        </td>
+                                                        <td>
+                                                            100x146x30 (mm)
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="product-btn clearfix">
+                                                <div type="button" class="btn1" data-toggle="modal"
+                                                    data-target="#myModal">
+                                                    Quick
+                                                    Inquiry
+                                                </div>
+                                                <a href="" target="" class="btn2"> View Details</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+

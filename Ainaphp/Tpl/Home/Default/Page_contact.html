@@ -1,0 +1,113 @@
+
+
+    <!-- 路径导航 -->
+    <div class="ljbg">
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Product</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="left col-lg-8 col-md-8 col-sm-8">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                data-toggle="tab">New York</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
+                                data-toggle="tab">London</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
+                                data-toggle="tab">Sydney</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab"
+                                data-toggle="tab">Paris</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
+                            <div class="col-lg-6  col-md-6  col-sm-6">
+                                <ul>
+                                    <li>
+                                        <strong>Address:</strong>
+                                        <span>{$address}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Phone:</strong>
+                                        <span> {$phone}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Fax:</strong>
+                                        <span>{$domestic_fax}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Email:</strong>
+                                        <span> {$email}</span>
+                                    </li>
+<!--                                    <li>
+                                        <strong>Web:</strong>
+                                        <span> http://buildpro-construction.com</span>
+                                    </li>-->
+                                    <li>
+                                        <strong>Open</strong>
+                                        <span>Sunday - Friday 08:00 - 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
+                            <div class="col-lg-6  col-md-6  col-sm-6">
+                                <ul>
+                                    <li>
+                                        <strong>Address:</strong>
+                                        <span>{$address}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Phone:</strong>
+                                        <span> {$phone}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Fax:</strong>
+                                        <span>{$domestic_fax}</span>
+                                    </li>
+                                    <li>
+                                        <strong>Email:</strong>
+                                        <span> {$email}</span>
+                                    </li>
+<!--                                    <li>
+                                        <strong>Web:</strong>
+                                        <span> http://buildpro-construction.com</span>
+                                    </li>-->
+                                    <li>
+                                        <strong>Open</strong>
+                                        <span>Sunday - Friday 08:00 - 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                    </div>
+
+                </div>
+
+                <div class="right col-lg-4 col-md-4 col-sm-4">
+                    <h5>Send Us Message</h5>
+                    <form name="form" method="post" onsubmit="return beforeSubmit2(this);"
+                        action="index.php?g=Home&a=message">
+                        <input type="text" name="name" id="" placeholder="Your Name">
+                        <input type="text" name="email" id="" placeholder="Your Email">
+                        <input type="text" name="phone" id="" placeholder="Your Phone">
+                        <textarea placeholder="Your Message" name="message" id="" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Submit Form" class="submit-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

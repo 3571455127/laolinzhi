@@ -1,0 +1,36 @@
+<include file="Home:path" />
+
+    <!-- NEWs-show -->
+    <div class="news-show">
+        <div class="news-show-box container">
+            <div class="row">
+                <div class="clearfix">
+                    <div class="left col-lg-9 col-md-9 col-sm-12">
+                        <!-- 内容 -->
+                        <div class="article">
+                            {$content}
+                        </div>
+                        <!-- 推荐新闻 -->
+                        <div class="article-related">
+                            <h5>Related News</h5>
+                            <div class="article-related-box clearfix">
+                                <YP:list order="listorder desc" catid="112" id="r" posid="1" limit="4">    
+                                <a  href="{$r.url}" title="{$r.title}" class="col-lg-6 col-md-6 col-sm-6">
+                                    <strong class="time">[{$r.createtime|toDate=###,'Y-m-d'}]</strong>
+                                    <span>{$r.title|str_cut=###,30,'...'}</span>
+                                </a>
+                                </YP:list> 
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <include file="Home:right" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  

@@ -1,0 +1,153 @@
+
+
+    <div class="banner">
+        <!-- pc -->
+        <div class="pc-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 1" key="n">
+                    <!-- start -->
+                    <div class="swiper-slide">
+                        <a href="{$r.url}" title="{$r.title}">
+                <img src="{$r.pic}" alt="{$r.title}">
+                </a>
+                    </div>
+                    <!-- end -->
+</YP:list>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!-- wap -->
+        <div class="wap-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 2" key="n">
+                    <!-- start -->
+                    <div class="swiper-slide">
+                        <a href="{$r.url}" title="{$r.title}">
+                <img src="{$r.pic}" alt="{$r.title}">
+                </a>
+                    </div>
+                    <!-- end -->
+</YP:list>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="index">
+        <div class="container">
+            <div class="row">
+                <!-- new -->
+                <div class="new clearfix">
+                    <YP:list order="listorder desc" catid="112" id="r" posid="1" limit="4">     
+                    <!-- start -->
+                    <a href="{$r.url}" title="{$r.title}" class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="box-img"><img src="{$r.thumb}" alt="{$r.title}"></div>
+                        <h5>{$r.title|str_cut=###,30,'...'}</h5>
+                        <p>{$r.description|str_cut=###,120,'...'}</p>
+                        <div class="time">{$r.createtime|toDate=###,'Y.m.d'}</div>
+                    </a>
+                    <!-- end -->
+                    </YP:list> 
+                    
+                </div>
+
+                <!-- product -->
+                <div class="index-product clearfix">
+                    <YP:list name="slide_data" id="r" limit="9" field="*" where="fid = 3" key="n">
+                    <!-- start -->
+                    
+                    <a href="{$r.url}" title="{$r.title}" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="{$r.pic}" alt="{$r.title}">
+                        {if $r['description']}
+                        <div class="boxs">
+                            {$r.description}
+                        </div>
+                        {else}
+                        <h5>{$r.title}</h5>
+                        {/if}
+                    </a>
+                    
+                    <!-- end -->
+                    </YP:list>
+                </div>
+            </div>
+        </div>
+
+        <!-- about -->
+        <div class="index-about">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 113','sycont');?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service -->
+        <div class="index-service">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 77','sycont');?>                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="index-certificate">
+            <div class="container">
+                <div class="row">
+                    <h3>Certificate</h3>
+                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+                    <!-- pc -->
+                    <div class="certificate-pc">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+<YP:list order="listorder desc" catid="194" id="r" limit="10">
+                                <!-- start -->
+                                <div class="swiper-slide">
+                                    <img src="{$r.thumb}" alt="{$r.title}">
+                                </div>
+                                <!-- end -->
+</YP:list>
+                            </div>
+
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <!-- wap -->
+                    <div class="certificate-wap">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+<YP:list order="listorder desc" catid="194" id="r" limit="10">
+                                <!-- start -->
+                                <div class="swiper-slide">
+                                    <img src="{$r.thumb}" alt="{$r.title}">
+                                </div>
+                                <!-- end -->
+</YP:list>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- wap -->
+
+        </div>
+
+
+    </div>
