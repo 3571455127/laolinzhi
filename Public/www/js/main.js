@@ -275,7 +275,21 @@ $(function () {
 		});
 	}
 
-
+	// wap菜单切换
+	$('.arrow').click(function () {
+		$(this).toggleClass('active3');
+		$(this).siblings('.mt_ul').slideToggle(300);
+	})
+	$(".h_right").click(function () {
+		$(".bg").animate({
+			"right": "0"
+		}, 200);
+	})
+	$('.bg_l').click(function () {
+		$(".bg").animate({
+			"right": "-100%"
+		}, 200);
+	})
 
 })
 var submitcount2 = 0;

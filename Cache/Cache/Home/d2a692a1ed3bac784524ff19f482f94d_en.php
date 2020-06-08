@@ -151,6 +151,83 @@
             </div>
 
         </div>
+
+        <!-- wap-nav -->
+        <div class="wap-nav">
+            <!-- nav -->
+            <div class="bg">
+                <div class="bg_l">
+                </div>
+                <div class="nav_right">
+                    <div class="nav_rin">
+                        <!-- <ul class="menu_ul">
+                            <li><a href="" title="">HOME</a></li>
+                            <li class="active menu_li">
+                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
+                                <span class="arrow"><i></i></span>
+                                <ul class="mt_ul">
+                                    <li><a href="" title="">Pocket Spring Machine</a></li>
+
+                                    <li class="menu_li arrow2">
+                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
+                                            Machine</a>
+                                        <span class="arrow"><i></i></span>
+                                        <ul class="mt_ul">
+                                            <li><a href="">test1</a></li>
+                                            <li><a href="">test2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
+                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="" title="">PU FOAM MACHINE</a></li>
+                        </ul> -->
+
+                        <ul class="menu_ul clearfix">
+                            <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
+                                    title="">HOME</a></li>
+                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li" >
+                                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
+                                        <?php if($r[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
+                                        <?php if($r[child] == 1) : ?>
+                                        <ul class="mt_ul">
+                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li  class="menu_li arrow2">
+                                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                                    </a>
+                                                    <?php if($rs[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
+
+                                                    <?php if($rs[child] == 1) : ?>
+                                                    <ul class="mt_ul last-padd">
+                                                        <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
+                                                                <a href="<?php echo ($rss["url"]); ?>"
+                                                                    title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
+                                                            </li><?php endif; endif; endforeach;?>
+                                                    </ul>
+                                                    <?php endif;?>
+                                                </li><?php endif; endif; endforeach;?>
+                                        </ul>
+                                        <?php endif;?>
+                                    </li><?php endif; endif; endif; endforeach;?>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+                <div class="h_in">
+                    <div class="h_left">
+                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
+                                style="width: 230px;"></a>
+                    </div>
+                    <div class="h_right">
+                        <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
 

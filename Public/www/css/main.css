@@ -3179,6 +3179,9 @@ header .wap-nav {
         display: block;
     }
 
+    .banner .wap-banner{
+        margin-top: 81px;
+    }
 
     /*wap 导航 */
     .header {
@@ -3380,5 +3383,29 @@ header .wap-nav {
     .fa-list-ul {
         font-size: 30px;
         color: #144090;
+    }
+
+    .arrow2 .arrow {
+        height: 46px;
+    }
+
+    .last-padd li a {
+        padding-left: 60px;
+    }
+
+    .index .new {
+        border: none;
+    }
+
+    .index .new .box-img {
+        text-align: center;
+    }
+
+    .index .new a {
+        margin-bottom: 50px;
+    }
+
+    .index .new .time {
+        padding-top: 10px;
     }
 }
