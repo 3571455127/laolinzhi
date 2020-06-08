@@ -62,13 +62,12 @@
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
                                 <!-- search -->
-                                <li class="search-form">
+                                <li class="search-form" id="con">
                                     <form action="" method="post">
                                         <input type="text" placeholder="Search">
-                                        <img src="__PUBLIC__/www/images/search.png" alt="">
                                     </form>
                                 </li>
-                                <li class="search">
+                                <li class="search" id="tf">
                                     <img src="__PUBLIC__/www/images/search.png" alt="">
                                 </li>
 
@@ -100,15 +99,18 @@
             <div class="container">
                 <div class="row">
                     <ul class="navbars clearfix">
-                        <li><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
+                        <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
                         <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?>">
                             <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
                             <?php if($r[child] == 1) : ?>
                             <ul class="second-nav">
                                 <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
-                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?></a>
+                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                    </a>
+                                    <?php if($rs[child] == 1) : ?> <i class="fa fa-angle-right"></i><?php endif;?> 
+                                   
                                     <?php if($rs[child] == 1) : ?>
-                                        <ul class="second-nav">
+                                        <ul class="three-nav">
                                             <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
                                                 <a href="<?php echo ($rss["url"]); ?>" title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
                                             </li><?php endif; endif; endforeach;?>
@@ -161,24 +163,24 @@
                                 <ul>
                                     <li>
                                         <strong>Address:</strong>
-                                        <span>Collins Street West, Victoria 8007 Australia</span>
+                                        <span><?php echo ($address); ?></span>
                                     </li>
                                     <li>
                                         <strong>Phone:</strong>
-                                        <span> (208) 333 9296</span>
+                                        <span> <?php echo ($phone); ?></span>
                                     </li>
                                     <li>
                                         <strong>Fax:</strong>
-                                        <span>(208) 333 9298</span>
+                                        <span><?php echo ($domestic_fax); ?></span>
                                     </li>
                                     <li>
                                         <strong>Email:</strong>
-                                        <span> contact@buildpro.com</span>
+                                        <span> <?php echo ($email); ?></span>
                                     </li>
-                                    <li>
+<!--                                    <li>
                                         <strong>Web:</strong>
                                         <span> http://buildpro-construction.com</span>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <strong>Open</strong>
                                         <span>Sunday - Friday 08:00 - 18:00</span>
@@ -192,24 +194,24 @@
                                 <ul>
                                     <li>
                                         <strong>Address:</strong>
-                                        <span>Collins Street West, Victoria 8007 Australia</span>
+                                        <span><?php echo ($address); ?></span>
                                     </li>
                                     <li>
                                         <strong>Phone:</strong>
-                                        <span> (208) 333 9296</span>
+                                        <span> <?php echo ($phone); ?></span>
                                     </li>
                                     <li>
                                         <strong>Fax:</strong>
-                                        <span>(208) 333 9298</span>
+                                        <span><?php echo ($domestic_fax); ?></span>
                                     </li>
                                     <li>
                                         <strong>Email:</strong>
-                                        <span> contact@buildpro.com</span>
+                                        <span> <?php echo ($email); ?></span>
                                     </li>
-                                    <li>
+<!--                                    <li>
                                         <strong>Web:</strong>
                                         <span> http://buildpro-construction.com</span>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <strong>Open</strong>
                                         <span>Sunday - Friday 08:00 - 18:00</span>

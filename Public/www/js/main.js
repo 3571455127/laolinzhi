@@ -146,41 +146,79 @@ $(function () {
 	});
 
 
+
+	// 二级导航
+	$(".first-nav>li>a").click(function () {
+
+		var flag = $(this).next().is(':hidden');
+		var flag11 = $(this).hasClass('actives');
+		console.log(flag);
+		flag ? $(this).next().slideDown(500) : $(this).next().slideUp(500);
+		flag11 ? $(this).removeClass("actives"):$(this).addClass("actives")
+	})
+	// 三级导航
+	$(".second-nav>li>a").click(function () {
+		var flag1 = $(this).next().is(':hidden');
+		var flag22 = $(this).hasClass('activess');
+		flag1 ? $(this).next().slideDown(500) : $(this).next().slideUp(500);
+		flag22 ? $(this).removeClass("activess"):$(this).addClass("activess")
+	})
+
+
 	$(".first-nav li a").click(function () {
 		var iclassname = $(this).children("i")
 		var a = iclassname.hasClass("fa-angle-down");
 		a ? iclassname.removeClass("fa-angle-down") : iclassname.addClass("fa-angle-down")
 	})
 
-	// language
-	$(".language").hover(function () {
-		$(".multilingual").slideDown(500)
-	}, function () {
-		$(".multilingual").hide()
-	});
 	// wechat
 	$(".wechat").hover(function () {
 		$(".wechat-box").show(500)
 	}, function () {
 		$(".wechat-box").hide()
 	});
-	// language
+	// 二级导航
 	$(".navbars>li").hover(function () {
 		$(this).find(".second-nav").slideDown(500)
 	}, function () {
 		$(".second-nav").hide()
 	});
+	// 三级导航
+	$(".second-nav>li").hover(function () {
+		$(this).find(".three-nav").slideDown(500)
+	}, function () {
+		$(".three-nav").hide()
+	});
 
-	// search
-	$(".search img").click(function () {
-		$(this).css({
-			"opacity": " 0",
-			"width": "1px",
+
+	$('#tf').click(function (e) {
+		$(this).addClass("serch-position")
+		$('#con').fadeIn(500);
+		stopBubble(e);
+		$(document).click(function () {
+			$('#con').hide();
+			$('#tf').removeClass("serch-position")
 		});
-		$(this).parent().css("padding-right", "5")
-		$(".search-form").show()
-		$(".search-form img").show()
-	})
+	});
+	$('#con').click(function (e) {
+		//只阻止了向上冒泡，而没有阻止向下捕获，所以点击con的内部对象时，仍然可以执行这个函数
+		stopBubble(e);
+	});
+
+	//阻止冒泡函数
+	function stopBubble(e) {
+		if (e && e.stopPropagation) {
+			e.stopPropagation();    //w3c
+		} else {
+			window.event.cancelBubble = true; //IE
+		}
+	}
+	// language
+	$(".language").hover(function () {
+		$(".multilingual").slideDown(500)
+	}, function () {
+		$(".multilingual").hide()
+	});
 
 	// 右侧导航
 	if ($(".index-contact").length > 0) {

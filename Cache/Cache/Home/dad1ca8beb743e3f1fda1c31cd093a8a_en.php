@@ -62,13 +62,12 @@
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
                                 <!-- search -->
-                                <li class="search-form">
+                                <li class="search-form" id="con">
                                     <form action="" method="post">
                                         <input type="text" placeholder="Search">
-                                        <img src="__PUBLIC__/www/images/search.png" alt="">
                                     </form>
                                 </li>
-                                <li class="search">
+                                <li class="search" id="tf">
                                     <img src="__PUBLIC__/www/images/search.png" alt="">
                                 </li>
 
@@ -100,15 +99,18 @@
             <div class="container">
                 <div class="row">
                     <ul class="navbars clearfix">
-                        <li><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
+                        <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
                         <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?>">
                             <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
                             <?php if($r[child] == 1) : ?>
                             <ul class="second-nav">
                                 <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
-                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?></a>
+                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                    </a>
+                                    <?php if($rs[child] == 1) : ?> <i class="fa fa-angle-right"></i><?php endif;?> 
+                                   
                                     <?php if($rs[child] == 1) : ?>
-                                        <ul class="second-nav">
+                                        <ul class="three-nav">
                                             <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
                                                 <a href="<?php echo ($rss["url"]); ?>" title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
                                             </li><?php endif; endif; endforeach;?>
@@ -177,30 +179,28 @@
 
                         <div class="sidebar-nav">
                             <ul class="first-nav">
-                              <?php $n=0;foreach($Categorys as $key=>$r):if($n<100) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))): ?><!-- start -->
-                            <li class=" <?php if($bcid==$r[id]) : ?>active<?php endif;?>"><a href="<?php if($r[child]==1) : ?>#menui<?php echo ($r[id]); else : echo ($r["url"]); endif;?>" <?php if($r[child]==1) : ?>data-toggle="collapse"<?php endif;?>><?php echo ($r["catname"]); ?>
+                              <?php $n=0;foreach($Categorys as $key=>$r):if($n<100) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?>"><a href="<?php if($r[child]==1) : ?>javascript:;<?php echo ($r[id]); else : echo ($r["url"]); endif;?>" ><?php echo ($r["catname"]); ?>
                                    <?php if($r[child]==1) : ?> <i class="fa fa-angle-right"></i><?php endif;?>
                                 </a>
                                  <?php if($r[child] == 1) : ?>
-                                <div id="menui<?php echo ($r[id]); ?>" class="collapse">
                                     <ul class="second-nav">
                                         <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li class="<?php if($parentid==$rs[id]) : ?>afinve active<?php endif;?> <?php if($catid==$rs[id]) : ?>active<?php endif;?>">
-                                            <a href="<?php if($rs[child]==1) : ?>#menui<?php echo ($rs[id]); else : echo ($rs["url"]); endif;?>" <?php if($rs[child]==1) : ?>data-toggle="collapse"<?php endif;?>><?php echo ($rs["catname"]); ?>
+                                            <a href="<?php if($rs[child]==1) : ?>javascript:;<?php echo ($rs[id]); else : echo ($rs["url"]); endif;?>"><?php echo ($rs["catname"]); ?>
                                                 <?php if($rs[child]==1) : ?><i class="fa fa-angle-right"></i><?php endif;?>
                                             </a>
                                             <?php if($rs[child]==1) : ?>
-                                            <div id="menui<?php echo ($rs[id]); ?>" class="collapse">
-                                                <?php $nnn=0;foreach($Categorys as $key=>$rss):if($nnn<10) :if( intval($rs[id])==$rss["parentid"] ) :++$nnn;?><a href="<?php echo ($rss["url"]); ?>"><?php echo ($rss["catname"]); ?></a><?php endif; endif; endforeach;?>
-                                            </div>
+                                            <ul class="three_nav">
+                                                <?php $nnn=0;foreach($Categorys as $key=>$rss):if($nnn<10) :if( intval($rs[id])==$rss["parentid"] ) :++$nnn;?><li>  <a href="<?php echo ($rss["url"]); ?>"><?php echo ($rss["catname"]); ?></a> </li><?php endif; endif; endforeach;?>
+                                            </ul>
                                             <?php endif;?>
                                         </li><?php endif; endif; endforeach;?>
                                     </ul>
-                                </div>
                                  <?php endif;?>
-                            </li>
-                            <!-- end --><?php endif; endif; endif; endforeach;?> 
+                            </li><?php endif; endif; endif; endforeach;?> 
 
                             </ul>
+
+                           
                         </div>
 
                         <ul class="digood-related">

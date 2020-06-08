@@ -13,36 +13,35 @@
                             <ul class="first-nav">
                               <YP:subcat catid="0" id="r" where="listorder asc" limit="100" key="n">    
                                 <if condition="$r[catname] neq 'THANKS'  && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))">                       
-                            <!-- start -->
-                            <li class=" {if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}#menui{$r[id]}{else}{$r.url}{/if}" {if $r[child]==1}data-toggle="collapse"{/if}>{$r.catname}
+                            
+                            <li class="{if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}javascript:;{$r[id]}{else}{$r.url}{/if}" >{$r.catname}
                                    {if $r[child]==1} <i class="fa fa-angle-right"></i>{/if}
                                 </a>
                                  {if $r[child] == 1}
-                                <div id="menui{$r[id]}" class="collapse">
                                     <ul class="second-nav">
                                         <YP:subcat catid="$r[id]" id="rs">
                                         <li class="{if $parentid==$rs[id]}afinve active{/if} {if $catid==$rs[id]}active{/if}">
-                                            <a href="{if $rs[child]==1}#menui{$rs[id]}{else}{$rs.url}{/if}" {if $rs[child]==1}data-toggle="collapse"{/if}>{$rs.catname}
+                                            <a href="{if $rs[child]==1}javascript:;{$rs[id]}{else}{$rs.url}{/if}">{$rs.catname}
                                                 {if $rs[child]==1}<i class="fa fa-angle-right"></i>{/if}
                                             </a>
                                             {if $rs[child]==1}
-                                            <div id="menui{$rs[id]}" class="collapse">
+                                            <ul class="three_nav">
                                                 <YP:subcat catid="$rs[id]" id="rss" limit="10" key="nnn">
-                                                <a href="{$rss.url}">{$rss.catname}</a> 
+                                                <li>  <a href="{$rss.url}">{$rss.catname}</a> </li>
                                                 </YP:subcat>
-                                            </div>
+                                            </ul>
                                             {/if}
                                         </li>
                                         </YP:subcat>
                                     </ul>
-                                </div>
                                  {/if}
                             </li>
-                            <!-- end -->
                             </if>
                             </YP:subcat> 
 
                             </ul>
+
+                           
                         </div>
 
                         <ul class="digood-related">

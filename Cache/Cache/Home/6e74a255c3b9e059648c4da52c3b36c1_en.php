@@ -62,13 +62,12 @@
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
                                 <!-- search -->
-                                <li class="search-form">
+                                <li class="search-form" id="con">
                                     <form action="" method="post">
                                         <input type="text" placeholder="Search">
-                                        <img src="__PUBLIC__/www/images/search.png" alt="">
                                     </form>
                                 </li>
-                                <li class="search">
+                                <li class="search" id="tf">
                                     <img src="__PUBLIC__/www/images/search.png" alt="">
                                 </li>
 
@@ -108,7 +107,7 @@
                                 <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
                                     <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?></a>
                                     <?php if($rs[child] == 1) : ?>
-                                        <ul class="second-nav">
+                                        <ul class="three-nav">
                                             <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
                                                 <a href="<?php echo ($rss["url"]); ?>" title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
                                             </li><?php endif; endif; endforeach;?>
