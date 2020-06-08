@@ -44,7 +44,8 @@
                 <div class="row">
                     <div class="top-box clearfix">
                         <div class="logo col-lg-6 col-md-6 col-sm-6">
-                            <a href="/index.php?l=<?php echo (LANG_SET); ?>" title="logo"><img src="__PUBLIC__/www/images/logo.png" alt=""></a>
+                            <a href="/index.php?l=<?php echo (LANG_SET); ?>" title="logo"><img
+                                    src="__PUBLIC__/www/images/logo.png" alt=""></a>
                         </div>
                         <div class="right col-lg-6 col-md-6 col-sm-6">
                             <ul class="clearfix">
@@ -54,22 +55,42 @@
                                     <div class="wechat-box"><img src="__PUBLIC__/www/images/wechat11.png" alt=""></div>
                                 </li>
                                 <!-- share -->
-                                <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                                <li><a href="<?php echo ($facebook); ?>" title="facebook" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-facebook.png" alt=""></a></li>
-                                <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
-                                        rel="nofollow" class=""><img src="__PUBLIC__/www/images/top-whatsapp.png" alt=""></a></li>
-                                <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                                <li><a href="https://api.whatsapp.com/send?phone=86<?php echo ($whatsapp); ?>" title="" target="_blank"
+                                        rel="nofollow" class=""><img src="__PUBLIC__/www/images/top-whatsapp.png"
+                                            alt=""></a></li>
+                                <li><a href="<?php echo ($ins); ?>" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
                                 <!-- search -->
                                 <li class="search-form" id="con">
-                                    <form action="" method="post">
-                                        <input type="text" placeholder="Search">
+                                    <form id="search_form" action="<?php echo U('Search/index');?>" method="post">
+                                        <!--<input type="text" placeholder="Search">-->
+                                        <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
+                                        <input type="text" name="keyword" placeholder="prodcut name" id="search"
+                                            value="<?php echo ($keyword); ?>">
+                                        <input type="hidden" name="module" value="Product">
                                     </form>
                                 </li>
                                 <li class="search" id="tf">
                                     <img src="__PUBLIC__/www/images/search.png" alt="">
                                 </li>
+                                <script>
+                                    $(function () {
+                                        $('.searchs').click(function () {
+                                            //            alert(1);
+                                            var search = $('#search').val();
+                                            if (search == '') {
+                                                alert("Please enter the search content");
+                                                $('#search').focus();
+                                                return false;
+                                            } else {
+                                                $('#search_form').submit();
+                                            }
+                                        })
+                                    })
+                                </script>
 
                                 <!-- language -->
                                 <li class="language">
@@ -79,11 +100,14 @@
                                         <span>EN</span>
                                     </div>
                                     <ul class="multilingual">
-                                        <li><a href="/index.php?l=en" title="english"><img src="__PUBLIC__/www/images/english.png" alt="">English</a>
+                                        <li><a href="/index.php?l=en" title="english"><img
+                                                    src="__PUBLIC__/www/images/english.png" alt="">English</a>
                                         </li>
-                                        <li><a href="/index.php?l=es" title="españa"><img src="__PUBLIC__/www/images/españa.png" alt="">España</a>
+                                        <li><a href="/index.php?l=es" title="españa"><img
+                                                    src="__PUBLIC__/www/images/es.png" alt="">España</a>
                                         </li>
-                                        <li><a href="/index.php?l=ru" title="pоссия"><img src="__PUBLIC__/www/images/pоссия.png" alt="">Россия</a>
+                                        <li><a href="/index.php?l=ru" title="pоссия"><img
+                                                    src="__PUBLIC__/www/images/ru.png" alt="">Россия</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -99,27 +123,29 @@
             <div class="container">
                 <div class="row">
                     <ul class="navbars clearfix">
-                        <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>" title="">HOME</a></li>
+                        <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
+                                title="">HOME</a></li>
                         <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?>">
-                            <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
-                            <?php if($r[child] == 1) : ?>
-                            <ul class="second-nav">
-                                <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
-                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
-                                    </a>
-                                    <?php if($rs[child] == 1) : ?> <i class="fa fa-angle-right"></i><?php endif;?> 
-                                   
-                                    <?php if($rs[child] == 1) : ?>
-                                        <ul class="three-nav">
-                                            <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
-                                                <a href="<?php echo ($rss["url"]); ?>" title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
+                                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
+                                    <?php if($r[child] == 1) : ?>
+                                    <ul class="second-nav">
+                                        <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li>
+                                                <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                                </a>
+                                                <?php if($rs[child] == 1) : ?> <i class="fa fa-angle-right"></i><?php endif;?>
+
+                                                <?php if($rs[child] == 1) : ?>
+                                                <ul class="three-nav">
+                                                    <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
+                                                            <a href="<?php echo ($rss["url"]); ?>"
+                                                                title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
+                                                        </li><?php endif; endif; endforeach;?>
+                                                </ul>
+                                                <?php endif;?>
                                             </li><?php endif; endif; endforeach;?>
-                                        </ul>
-                                    <?php endif;?> 
-                                </li><?php endif; endif; endforeach;?>
-                            </ul>
-                            <?php endif;?>
-                        </li><?php endif; endif; endif; endforeach;?>
+                                    </ul>
+                                    <?php endif;?>
+                                </li><?php endif; endif; endif; endforeach;?>
                     </ul>
                 </div>
             </div>
@@ -247,48 +273,23 @@
         <div class="footer-nav">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>Product</h5>
+                    <?php $n=0;foreach($Categorys as $key=>$r):if($n<100) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))): ?><div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h5><?php echo ($r["catname"]); ?></h5>
+                        <?php if($r[child] == 1) : ?>
                         <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li><a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>" target="_blank"><?php echo (str_cut($rs["catname"],25,'..')); ?></a></li><?php endif; endif; endforeach;?>
                         </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>News</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>About Us</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
+                        <?php endif;?>
+                    </div><?php endif; endif; endif; endforeach;?>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
                         <a href="" class="footer-logo"><img src="__PUBLIC__/www/images/footer-logo.png" alt=""></a>
-                        <p>NINGBO LADETECH MATTRESS MACHINERY CO., LTD </p>
+                        <p><?php echo ($name); ?></p>
                         <ul class="footer-share">
-                            <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="<?php echo ($facebook); ?>" title="facebook" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-facebook.png" alt=""></a></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                            <li><a href="https://api.whatsapp.com/send?phone=86<?php echo ($whatsapp); ?>" title="" target="_blank"
                                     rel="nofollow" class=""><img src="__PUBLIC__/www/images/footer-whatsapp.png" alt=""></a></li>
-                            <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="<?php echo ($ins); ?>" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-linkedin.png" alt=""></a></li>
                             <li class="wechats">
                                 <a href="javascript:;">
@@ -298,7 +299,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="copy">NINGBO LADETECH MATTRESS MACHINERY CO., LTD</div>
+                    <div class="copy"><?php echo ($cop); ?></div>
                 </div>
             </div>
 
@@ -315,7 +316,7 @@
                 <p>Commissioner one-on-one service</p>
                 <form name="form" method="post" action="index.php?g=Home&amp;a=message"
                     onsubmit="return beforeSubmit2(this);" id="user_form2">
-                    <input name="forward" type="hidden" value="www.acousticcn.com/index.php">
+            <input name="forward" type="hidden" value="<?php echo ($_SERVER['SERVER_NAME']); if($catid) : ?>/index.php?m=<?php echo ($Categorys[$catid]['module']); ?>&a=index&id=<?php echo ($catid); else :?>/index.php<?php endif;?>"/>
                     <div class="showFormBacColor">
                         <div class="form-line01">
                             <input type="text" name="name" placeholder="Youre Name">

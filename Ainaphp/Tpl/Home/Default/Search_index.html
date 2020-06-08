@@ -1,31 +1,123 @@
-<include file="Home:banner"/>
+<!-- <include file="Home:banner" />
 <div class="crumbs">
     <div class="container">
-        <a href="/index.php">HOME</a> /
-        <YP:catpos catid="catid" space="&gt;" />
+        <a href="/index.php">HOME</a> / <YP:catpos catid="catid" space="&gt;" />
     </div>
-</div>
-<div class="container clearfix">
-    <include file="Home:sidebar"/>
-    <div class="mainBox">
-        <div class="mainTitle clearfix">
-            <h3 class="main_left">Search</h3>
-            <div class="main_address">
-                <a href="{$site_url}">HOME</a>-
-                <a href="{$site_url}">SEARCH</a>
+</div> -->
+<div class="search-content">
+    <div class="container clearfix">
+        <include file="Home:sidebar" />
+        <div class="mainBox">
+            <div class="mainTitle clearfix">
+                <h3 class="main_left">Search Results</h3>
+                <!-- <div class="main_address">
+                    <a href="{$site_url}">HOME</a>-
+                    <a href="{$site_url}">SEARCH</a>
+                </div> -->
+            </div>
+            <!-- <div class="newsList">
+                <ul>
+                    <volist name="list" id="r">
+                        <li><i></i><span>{$r.createtime|toDate=###,"Y-m-d"}</span><a href="{$r.url}"
+                                title="">{$r.title}</a>
+                        </li>
+                    </volist>
+                </ul>
+            </div> -->
+            <div class="serch-list">
+                <div class="row">
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro1.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro2.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro3.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro4.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro4.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+
+                </div>
+                {if $pages}
+                <div class="page">
+                    {$pages}
+                </div>
+                {/if}
             </div>
         </div>
-        <div class="newsList">
-            <ul >
-                <volist name="list" id="r">
-                <li><i></i><span>{$r.createtime|toDate=###,"Y-m-d"}</span><a href="{$r.url}" title="">{$r.title}</a></li>
-                </volist>
-            </ul>
-        </div> 
-        {if $pages}
-        <div class="page">
-             {$pages}
-        </div>  
-        {/if}
+
     </div>
-</div>
+
+    <style>
+        .main_left {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width:1920px) {
+            .search-content {
+                margin-top: 250px;
+            }
+        }
+        @media screen and (max-width: 1366px) {
+            .search-content {
+                margin-top: 250px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .search-content {
+                margin-top: 80px;
+            }
+        }
+       
+
+        .search-content {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .search-content .serch-list {
+            padding-top: 20px;
+        }
+
+        .search-content .serch-list a {
+            padding-bottom: 20px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .search-content .serch-list img {
+            transition: all .4s ease-in-out;
+        }
+
+        .search-content .serch-list a:hover img {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .search-content .serch-list h5 {
+            margin: 5px 0;
+            font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 5px;
+            color: #333;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+        }
+    </style>

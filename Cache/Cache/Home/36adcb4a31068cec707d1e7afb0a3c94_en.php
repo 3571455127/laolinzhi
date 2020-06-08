@@ -152,148 +152,127 @@
 
         </div>
     </header>
-
-
-    <div class="banner">
-        <!-- pc -->
-        <div class="pc-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-<?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
-                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                </a>
-                    </div>
-                    <!-- end --><?php endforeach; endif;?>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+<!-- 
+<div class="crumbs">
+    <div class="container">
+        <a href="/index.php">HOME</a> / <?php  $arrparentid = array_filter(explode(',', $Categorys[$catid]['arrparentid'].','.$catid));foreach($arrparentid as $cid):$parsestr[] = '<a href="'.$Categorys[$cid]['url'].'">'.$Categorys[$cid]['catname'].'</a>'; endforeach;echo implode("&gt;",$parsestr);?>
+    </div>
+</div> -->
+<div class="search-content">
+    <div class="container clearfix">
+        
+        <div class="mainBox">
+            <div class="mainTitle clearfix">
+                <h3 class="main_left">Search Results</h3>
+                <!-- <div class="main_address">
+                    <a href="<?php echo ($site_url); ?>">HOME</a>-
+                    <a href="<?php echo ($site_url); ?>">SEARCH</a>
+                </div> -->
             </div>
-        </div>
+            <!-- <div class="newsList">
+                <ul>
+                    <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li><i></i><span><?php echo (todate($r["createtime"],"Y-m-d")); ?></span><a href="<?php echo ($r["url"]); ?>"
+                                title=""><?php echo ($r["title"]); ?></a>
+                        </li><?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+            </div> -->
+            <div class="serch-list">
+                <div class="row">
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro1.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro2.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro3.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro4.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
+                    <a href="" class="col-lg-3 col-md-3 col-sm-6">
+                        <img src="/Public/www/images/pro4.png" alt="">
+                        <h5>Nullam id dolor id nibh ultric.</h5>
+                    </a>
 
-        <!-- wap -->
-        <div class="wap-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-<?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
-                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                </a>
-                    </div>
-                    <!-- end --><?php endforeach; endif;?>
                 </div>
-                <div class="swiper-pagination"></div>
+                <?php if($pages) : ?>
+                <div class="page">
+                    <?php echo ($pages); ?>
+                </div>
+                <?php endif;?>
             </div>
         </div>
 
     </div>
 
-    <div class="index">
-        <div class="container">
-            <div class="row">
-                <!-- new -->
-                <div class="new clearfix">
-                    <?php  $_result=M("Article")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=112  AND posid =1")->order("listorder desc")->limit("4")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="box-img"><img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>"></div>
-                        <h5><?php echo (str_cut($r["title"],30,'...')); ?></h5>
-                        <p><?php echo (str_cut($r["description"],120,'...')); ?></p>
-                        <div class="time"><?php echo (todate($r["createtime"],'Y.m.d')); ?></div>
-                    </a>
-                    <!-- end --><?php endforeach; endif;?> 
-                    
-                </div>
+    <style>
+        .main_left {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width:1920px) {
+            .search-content {
+                margin-top: 250px;
+            }
+        }
+        @media screen and (max-width: 1366px) {
+            .search-content {
+                margin-top: 250px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .search-content {
+                margin-top: 80px;
+            }
+        }
+       
 
-                <!-- product -->
-                <div class="index-product clearfix">
-                    <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=1 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
-                    
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
-                        <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                        <?php if($r['description']) : ?>
-                        <div class="boxs">
-                            <?php echo ($r["description"]); ?>
-                        </div>
-                        <?php else :?>
-                        <h5><?php echo ($r["title"]); ?></h5>
-                        <?php endif;?>
-                    </a>
-                    
-                    <!-- end --><?php endforeach; endif;?>
-                </div>
-            </div>
-        </div>
+        .search-content {
+            max-width: 100%;
+            height: auto;
+        }
 
-        <!-- about -->
-        <div class="index-about">
-            <div class="container">
-                <div class="row">
-<?php getcatvar('page','id = 113','sycont');?>
-                </div>
-            </div>
-        </div>
+        .search-content .serch-list {
+            padding-top: 20px;
+        }
 
-        <!-- Service -->
-        <div class="index-service">
-            <div class="container">
-                <div class="row">
-<?php getcatvar('page','id = 77','sycont');?>                   
-                </div>
-            </div>
-        </div>
+        .search-content .serch-list a {
+            padding-bottom: 20px;
+            overflow: hidden;
+            display: block;
+        }
 
-        <!-- Certificate -->
-        <div class="index-certificate">
-            <div class="container">
-                <div class="row">
-                    <h3>Certificate</h3>
-                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        .search-content .serch-list img {
+            transition: all .4s ease-in-out;
+        }
 
-                    <!-- pc -->
-                    <div class="certificate-pc">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-<?php  $_result=M("Certificate")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=194")->order("listorder desc")->limit("10")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                                <div class="swiper-slide">
-                                    <img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                                </div>
-                                <!-- end --><?php endforeach; endif;?>
-                            </div>
+        .search-content .serch-list a:hover img {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
 
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-
-                    <!-- wap -->
-                    <div class="certificate-wap">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-
-<?php  $_result=M("Certificate")->field("id,catid,url,title,title_style,keywords,description,thumb,createtime")->where(" 1  and lang=1 AND status=1  AND catid=194")->order("listorder desc")->limit("10")->select();; if ($_result): $i=0;foreach($_result as $key=>$r):++$i;$mod = ($i % 2 );?><!-- start -->
-                                <div class="swiper-slide">
-                                    <img src="<?php echo ($r["thumb"]); ?>" alt="<?php echo ($r["title"]); ?>">
-                                </div>
-                                <!-- end --><?php endforeach; endif;?>
-
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- wap -->
-
-        </div>
-
-
-    </div>
-
+        .search-content .serch-list h5 {
+            margin: 5px 0;
+            font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 5px;
+            color: #333;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+        }
+    </style>
 <footer>
 
     <!-- footer-nav -->

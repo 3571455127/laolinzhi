@@ -154,14 +154,14 @@ $(function () {
 		var flag11 = $(this).hasClass('actives');
 		console.log(flag);
 		flag ? $(this).next().slideDown(500) : $(this).next().slideUp(500);
-		flag11 ? $(this).removeClass("actives"):$(this).addClass("actives")
+		flag11 ? $(this).removeClass("actives") : $(this).addClass("actives")
 	})
 	// 三级导航
 	$(".second-nav>li>a").click(function () {
 		var flag1 = $(this).next().is(':hidden');
 		var flag22 = $(this).hasClass('activess');
 		flag1 ? $(this).next().slideDown(500) : $(this).next().slideUp(500);
-		flag22 ? $(this).removeClass("activess"):$(this).addClass("activess")
+		flag22 ? $(this).removeClass("activess") : $(this).addClass("activess")
 	})
 
 
@@ -192,12 +192,12 @@ $(function () {
 
 
 	$('#tf').click(function (e) {
-		$(this).addClass("serch-position")
+		$(this).hide();
 		$('#con').fadeIn(500);
 		stopBubble(e);
 		$(document).click(function () {
 			$('#con').hide();
-			$('#tf').removeClass("serch-position")
+			$('#tf').show();
 		});
 	});
 	$('#con').click(function (e) {

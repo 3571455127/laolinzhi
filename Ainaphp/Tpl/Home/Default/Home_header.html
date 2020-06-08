@@ -44,7 +44,8 @@
                 <div class="row">
                     <div class="top-box clearfix">
                         <div class="logo col-lg-6 col-md-6 col-sm-6">
-                            <a href="/index.php?l={$Think.LANG_SET}" title="logo"><img src="__PUBLIC__/www/images/logo.png" alt=""></a>
+                            <a href="/index.php?l={$Think.LANG_SET}" title="logo"><img
+                                    src="__PUBLIC__/www/images/logo.png" alt=""></a>
                         </div>
                         <div class="right col-lg-6 col-md-6 col-sm-6">
                             <ul class="clearfix">
@@ -57,7 +58,8 @@
                                 <li><a href="{$facebook}" title="facebook" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-facebook.png" alt=""></a></li>
                                 <li><a href="https://api.whatsapp.com/send?phone=86{$whatsapp}" title="" target="_blank"
-                                        rel="nofollow" class=""><img src="__PUBLIC__/www/images/top-whatsapp.png" alt=""></a></li>
+                                        rel="nofollow" class=""><img src="__PUBLIC__/www/images/top-whatsapp.png"
+                                            alt=""></a></li>
                                 <li><a href="{$ins}" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
@@ -65,28 +67,30 @@
                                 <li class="search-form" id="con">
                                     <form id="search_form" action="{:U('Search/index')}" method="post">
                                         <!--<input type="text" placeholder="Search">-->
-                            <input type="text" name="keyword" placeholder="prodcut name" id="search" value="{$keyword}">
-                            <input type="hidden" name="module" value="Product">
+                                        <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
+                                        <input type="text" name="keyword" placeholder="prodcut name" id="search"
+                                            value="{$keyword}">
+                                        <input type="hidden" name="module" value="Product">
                                     </form>
                                 </li>
                                 <li class="search" id="tf">
-                                    <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
+                                    <img src="__PUBLIC__/www/images/search.png" alt="">
                                 </li>
-                        <script>
-                            $(function () {
-                                $('.searchs').click(function () {
-                                    //            alert(1);
-                                    var search = $('#search').val();
-                                    if (search == '') {
-                                        alert("Please enter the search content");
-                                        $('#search').focus();
-                                        return false;
-                                    } else {
-                                        $('#search_form').submit();
-                                    }
-                                })
-                            })
-                        </script>
+                                <script>
+                                    $(function () {
+                                        $('.searchs').click(function () {
+                                            //            alert(1);
+                                            var search = $('#search').val();
+                                            if (search == '') {
+                                                alert("Please enter the search content");
+                                                $('#search').focus();
+                                                return false;
+                                            } else {
+                                                $('#search_form').submit();
+                                            }
+                                        })
+                                    })
+                                </script>
 
                                 <!-- language -->
                                 <li class="language">
@@ -96,11 +100,14 @@
                                         <span>EN</span>
                                     </div>
                                     <ul class="multilingual">
-                                        <li><a href="/index.php?l=en" title="english"><img src="__PUBLIC__/www/images/english.png" alt="">English</a>
+                                        <li><a href="/index.php?l=en" title="english"><img
+                                                    src="__PUBLIC__/www/images/english.png" alt="">English</a>
                                         </li>
-                                        <li><a href="/index.php?l=es" title="españa"><img src="__PUBLIC__/www/images/es.png" alt="">España</a>
+                                        <li><a href="/index.php?l=es" title="españa"><img
+                                                    src="__PUBLIC__/www/images/es.png" alt="">España</a>
                                         </li>
-                                        <li><a href="/index.php?l=ru" title="pоссия"><img src="__PUBLIC__/www/images/ru.png" alt="">Россия</a>
+                                        <li><a href="/index.php?l=ru" title="pоссия"><img
+                                                    src="__PUBLIC__/www/images/ru.png" alt="">Россия</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -116,33 +123,35 @@
             <div class="container">
                 <div class="row">
                     <ul class="navbars clearfix">
-                        <li class="{if MODULE_NAME == 'Index'}active{/if}"><a href="/index.php?l={$Think.LANG_SET}" title="">HOME</a></li>
+                        <li class="{if MODULE_NAME == 'Index'}active{/if}"><a href="/index.php?l={$Think.LANG_SET}"
+                                title="">HOME</a></li>
                         <YP:subcat catid="0" id="r" where="listorder asc" limit="150" key="n">
                             <if condition="$r[catname] neq 'THANKS'  && $r[id] neq 194">
-                        <li class="{if $bcid==$r[id]}active{/if}">
-                            <a href="{$r.url}" title="{$r.catname}">{$r.catname}</a>
-                            {if $r[child] == 1}
-                            <ul class="second-nav">
-                                <YP:subcat catid="$r[id]" where="listorder asc" id="rs">
-                                <li>
-                                    <a href="{$rs.url}" title="{$rs.catname}">{$rs.catname}
-                                    </a>
-                                    {if $rs[child] == 1} <i class="fa fa-angle-right"></i>{/if} 
-                                   
-                                    {if $rs[child] == 1}
-                                        <ul class="three-nav">
-                                            <YP:subcat catid="$r[id]" where="listorder asc" id="rss">
+                                <li class="{if $bcid==$r[id]}active{/if}">
+                                    <a href="{$r.url}" title="{$r.catname}">{$r.catname}</a>
+                                    {if $r[child] == 1}
+                                    <ul class="second-nav">
+                                        <YP:subcat catid="$r[id]" where="listorder asc" id="rs">
                                             <li>
-                                                <a href="{$rss.url}" title="{$rss.catname}">{$rss.catname}</a>
+                                                <a href="{$rs.url}" title="{$rs.catname}">{$rs.catname}
+                                                </a>
+                                                {if $rs[child] == 1} <i class="fa fa-angle-right"></i>{/if}
+
+                                                {if $rs[child] == 1}
+                                                <ul class="three-nav">
+                                                    <YP:subcat catid="$r[id]" where="listorder asc" id="rss">
+                                                        <li>
+                                                            <a href="{$rss.url}"
+                                                                title="{$rss.catname}">{$rss.catname}</a>
+                                                        </li>
+                                                    </YP:subcat>
+                                                </ul>
+                                                {/if}
                                             </li>
-                                            </YP:subcat>
-                                        </ul>
-                                    {/if} 
+                                        </YP:subcat>
+                                    </ul>
+                                    {/if}
                                 </li>
-                                </YP:subcat>
-                            </ul>
-                            {/if}
-                        </li>
                             </if>
                         </YP:subcat>
                     </ul>
