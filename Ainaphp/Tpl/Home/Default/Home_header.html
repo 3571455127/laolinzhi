@@ -54,22 +54,39 @@
                                     <div class="wechat-box"><img src="__PUBLIC__/www/images/wechat11.png" alt=""></div>
                                 </li>
                                 <!-- share -->
-                                <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                                <li><a href="{$facebook}" title="facebook" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-facebook.png" alt=""></a></li>
-                                <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                                <li><a href="https://api.whatsapp.com/send?phone=86{$whatsapp}" title="" target="_blank"
                                         rel="nofollow" class=""><img src="__PUBLIC__/www/images/top-whatsapp.png" alt=""></a></li>
-                                <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                                <li><a href="{$ins}" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                             src="__PUBLIC__/www/images/top-linkedin.png" alt=""></a></li>
 
                                 <!-- search -->
                                 <li class="search-form" id="con">
-                                    <form action="" method="post">
-                                        <input type="text" placeholder="Search">
+                                    <form id="search_form" action="{:U('Search/index')}" method="post">
+                                        <!--<input type="text" placeholder="Search">-->
+                            <input type="text" name="keyword" placeholder="prodcut name" id="search" value="{$keyword}">
+                            <input type="hidden" name="module" value="Product">
                                     </form>
                                 </li>
                                 <li class="search" id="tf">
-                                    <img src="__PUBLIC__/www/images/search.png" alt="">
+                                    <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
                                 </li>
+                        <script>
+                            $(function () {
+                                $('.searchs').click(function () {
+                                    //            alert(1);
+                                    var search = $('#search').val();
+                                    if (search == '') {
+                                        alert("Please enter the search content");
+                                        $('#search').focus();
+                                        return false;
+                                    } else {
+                                        $('#search_form').submit();
+                                    }
+                                })
+                            })
+                        </script>
 
                                 <!-- language -->
                                 <li class="language">
