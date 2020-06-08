@@ -5,48 +5,29 @@
         <div class="footer-nav">
             <div class="container">
                 <div class="row">
+                    <YP:subcat catid="0" id="r" where="listorder asc" limit="100" key="n">
+                         <if condition="$r[catname] neq 'THANKS'  && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))"> 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>Product</h5>
+                        <h5>{$r.catname}</h5>
+                        {if $r[child] == 1}
                         <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
+                            <YP:subcat catid="$r[id]" id="rs">
+                            <li><a href="{$rs.url}" title="{$rs.catname}" target="_blank">{$rs.catname|str_cut=###,25,'..'}</a></li>
+                            </YP:subcat>
                         </ul>
+                        {/if}
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>News</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5>About Us</h5>
-                        <ul>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                            <li><a href="" title="" target="_blank">MATTRESS MACHINE</a></li>
-                        </ul>
-                    </div>
+                            </if>
+                    </YP:subcat>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
                         <a href="" class="footer-logo"><img src="__PUBLIC__/www/images/footer-logo.png" alt=""></a>
-                        <p>NINGBO LADETECH MATTRESS MACHINERY CO., LTD </p>
+                        <p>{$name}</p>
                         <ul class="footer-share">
-                            <li><a href="" title="facebook" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="{$facebook}" title="facebook" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-facebook.png" alt=""></a></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=8613928248021" title="" target="_blank"
+                            <li><a href="https://api.whatsapp.com/send?phone=86{$whatsapp}" title="" target="_blank"
                                     rel="nofollow" class=""><img src="__PUBLIC__/www/images/footer-whatsapp.png" alt=""></a></li>
-                            <li><a href="" title="linkedin" target="_blank" rel="nofollow" class=""><img
+                            <li><a href="{$ins}" title="linkedin" target="_blank" rel="nofollow" class=""><img
                                         src="__PUBLIC__/www/images/footer-linkedin.png" alt=""></a></li>
                             <li class="wechats">
                                 <a href="javascript:;">
@@ -56,7 +37,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="copy">NINGBO LADETECH MATTRESS MACHINERY CO., LTD</div>
+                    <div class="copy">{$cop}</div>
                 </div>
             </div>
 
@@ -73,7 +54,7 @@
                 <p>Commissioner one-on-one service</p>
                 <form name="form" method="post" action="index.php?g=Home&amp;a=message"
                     onsubmit="return beforeSubmit2(this);" id="user_form2">
-                    <input name="forward" type="hidden" value="www.acousticcn.com/index.php">
+            <input name="forward" type="hidden" value="{$_SERVER['SERVER_NAME']}{if $catid}/index.php?m={$Categorys[$catid]['module']}&a=index&id={$catid}{else}/index.php{/if}"/>
                     <div class="showFormBacColor">
                         <div class="form-line01">
                             <input type="text" name="name" placeholder="Youre Name">

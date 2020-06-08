@@ -47,7 +47,15 @@
 		<td>{:L('cat_link_url')}</td>
 		<td><input type="text" name="url" class="input-text"  value="<if condition="$vo['type']==1">{$vo['url']}</if>" size='50'  /><input type="hidden" id="type" name="type" value="0" /></td>
 		</tr>
-
+                
+<tr>
+<td>底部导航是否显示: </td>
+<td>
+    <label for="isfooter0">否<input type="radio" id="isfooter0" name="isfooter" value="0"   <if condition="!$vo['isfooter']">checked</if>/></label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="isfooter1">是<input type="radio" id="isfooter1" name="isfooter" value="1" <if condition="$vo['isfooter']==1">checked</if> /></label>
+    
+</td>
+</tr>
 
 <!--
 		<tr style="background:#EFEFEF;">
