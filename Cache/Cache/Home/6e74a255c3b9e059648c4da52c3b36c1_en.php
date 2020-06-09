@@ -151,6 +151,83 @@
             </div>
 
         </div>
+
+        <!-- wap-nav -->
+        <div class="wap-nav">
+            <!-- nav -->
+            <div class="bg">
+                <div class="bg_l">
+                </div>
+                <div class="nav_right">
+                    <div class="nav_rin">
+                        <!-- <ul class="menu_ul">
+                            <li><a href="" title="">HOME</a></li>
+                            <li class="active menu_li">
+                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
+                                <span class="arrow"><i></i></span>
+                                <ul class="mt_ul">
+                                    <li><a href="" title="">Pocket Spring Machine</a></li>
+
+                                    <li class="menu_li arrow2">
+                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
+                                            Machine</a>
+                                        <span class="arrow"><i></i></span>
+                                        <ul class="mt_ul">
+                                            <li><a href="">test1</a></li>
+                                            <li><a href="">test2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
+                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="" title="">PU FOAM MACHINE</a></li>
+                        </ul> -->
+
+                        <ul class="menu_ul clearfix">
+                            <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
+                                    title="">HOME</a></li>
+                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li" >
+                                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
+                                        <?php if($r[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
+                                        <?php if($r[child] == 1) : ?>
+                                        <ul class="mt_ul">
+                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li  class="menu_li arrow2">
+                                                    <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
+                                                    </a>
+                                                    <?php if($rs[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
+
+                                                    <?php if($rs[child] == 1) : ?>
+                                                    <ul class="mt_ul last-padd">
+                                                        <?php $n=0;foreach($Categorys as $key=>$rss):if($n<99) :if( intval($r[id])==$rss["parentid"] ) :++$n;?><li>
+                                                                <a href="<?php echo ($rss["url"]); ?>"
+                                                                    title="<?php echo ($rss["catname"]); ?>"><?php echo ($rss["catname"]); ?></a>
+                                                            </li><?php endif; endif; endforeach;?>
+                                                    </ul>
+                                                    <?php endif;?>
+                                                </li><?php endif; endif; endforeach;?>
+                                        </ul>
+                                        <?php endif;?>
+                                    </li><?php endif; endif; endif; endforeach;?>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+                <div class="h_in">
+                    <div class="h_left">
+                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
+                                style="width: 230px;"></a>
+                    </div>
+                    <div class="h_right">
+                        <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- 路径导航 -->
     <div class="ljbg">
@@ -229,13 +306,13 @@
                 <div class="right col-lg-8 col-md-8 col-sm-8">
 
                     <div class="clearfix">
-                        <div class="images-box col-lg-5 col-md-5">
+                        <div class="images-box col-lg-6 col-md-5">
                             <script type="text/javascript">
                                 $(document).ready(function () {
                                     var showproduct = {
                                         "boxid": "showbox",
                                         "sumid": "showsum",
-                                        "boxw": 300, //宽度,该版本中请把宽高填写成一样
+                                        "boxw": 370, //宽度,该版本中请把宽高填写成一样
                                         "boxh": 300, //高度,该版本中请把宽高填写成一样
                                         "sumw": 50, //列表每个宽度,该版本中请把宽高填写成一样
                                         "sumh": 50, //列表每个高度,该版本中请把宽高填写成一样
@@ -257,48 +334,17 @@
                             <!--展示图片盒子-->
                             <div id="showsum"></div>
                             <!--展示图片里边-->
-                            <p class="showpage">
+                            <p class="showpage clearfix">
                                 <a href="javascript:void(0);" id="showlast"> <i class="fa fa-arrow-left"></i> </a>
                                 <a href="javascript:void(0);" id="shownext"> <i class="fa fa-arrow-right"></i></a>
                             </p>
                         </div>
-                        <div class="text col-lg-7  col-md-7">
-                            <h5>Factory Free sample U8 Smart Watch U8 Android Smart Watch DZ09 TW64 GT08 Wifi in stock
+                        <div class="text col-lg-6  col-md-7">
+                            <h5><?php echo ($title); ?>
                             </h5>
                             <hr>
                             <div class="dg-des-content">
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <th>Release on:</th>
-                                            <td>2016-02-21</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Version:</th>
-                                            <td>0.1</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Included:</th>
-                                            <td>Zip, AI, EPS</td>
-                                        </tr>
-                                        <tr>
-                                            <th>File size:</th>
-                                            <td>5Mb</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Requirements:</th>
-                                            <td>Illustrator</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Document:</th>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Support:</th>
-                                            <td>Life Time</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <?php echo ($jianjie); ?>
                             </div>
                             <hr>
                             <div class="dg-des-buttons">
