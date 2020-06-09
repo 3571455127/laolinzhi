@@ -70,7 +70,20 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 define('UPLOAD_PATH','./Uploads/');
 define('VERSION','v2.2 Released');
 define('UPDATETIME','20121225');
-
+//屏蔽国家
+$ip = get_client_ip2();
+$ADDRESS=getAddressFromIp($ip);
+//echo $ADDRESS;
+//exit;
+$coutry = "河北省、山西省、辽宁省、吉林省、黑龙江省、江苏省、浙江省、安徽省、福建省、江西省、山东省、河南省、湖北省、湖南省、广东省、海南省、四川省、贵州省、云南省、陕西省、甘肃省、青海省、台湾省、内蒙古自治区、广西壮族自治区、西藏自治区、宁夏回族自治区、新疆维吾尔自治区、北京市、天津市、上海市、重庆市、香港特别行政区、澳门特别行政区";
+//var_dump(strpos($coutry,$ADDRESS));
+if(strpos($coutry,$ADDRESS) !== false){ 
+//    echo 111;
+    header("Location:https://www.baidu.com/");
+}else{
+//    echo 222;
+    header("https://www.baidu.com/");
+}
 if(!isMobile()){
 
 define('Ainaphp',true);	
@@ -85,7 +98,56 @@ define('APP_NAME', 'Ainaphp');
 define('APP_PATH', './Ainaphp/');
    }
 	
-
+/**
+ * 获取客户端IP地址
+ * @param integer $type 返回类型 0 返回IP地址 1 返回IPV4地址数字
+ * @return mixed
+ */
+function get_client_ip2($type = 0) {
+	$type       =  $type ? 1 : 0;
+    static $ip  =   NULL;
+    if ($ip !== NULL) return $ip[$type];
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $arr    =   explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        $pos    =   array_search('unknown',$arr);
+        if(false !== $pos) unset($arr[$pos]);
+        $ip     =   trim($arr[0]);
+    }elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip     =   $_SERVER['HTTP_CLIENT_IP'];
+    }elseif (isset($_SERVER['REMOTE_ADDR'])) {
+        $ip     =   $_SERVER['REMOTE_ADDR'];
+    }
+    // IP地址合法验证
+    $long = sprintf("%u",ip2long($ip));
+    $ip   = $long ? array($ip, $long) : array('0.0.0.0', 0);
+    return $ip[$type];
+}
+//根据ip地址获取地址信息
+function getAddressFromIp($ip){
+    $urlSina = 'http://whois.pconline.com.cn/ipJson.jsp?json=true&ip='.$ip;
+        
+        $json = curlhttp($urlSina);
+//        print_r($json);
+        $pro=$json->pro;//省
+        $IpAddress=$json->addr;//全部
+        $pro=$pro?$pro:$IpAddress;
+		return  $pro;
+}
+function curlhttp($url,$post_data=''){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        $rec = curl_exec($ch);
+         // 关闭cURL资源，并且释放系统资源
+            curl_close($ch);
+        //文本转码
+        $rec = mb_convert_encoding($rec, 'utf-8','GB2312');
+        $result = json_decode($rec);
+        return $result;
+}
 
 define('APP_LANG', true);
 //define('APP_DEBUG',false);// 关闭调试模式
