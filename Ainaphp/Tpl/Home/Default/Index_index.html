@@ -5,10 +5,10 @@
         <div class="pc-banner">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 1" key="n">
+<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 1" key="n" order="listorder asc">
                     <!-- start -->
                     <div class="swiper-slide">
-                        <a href="{$r.url}" title="{$r.title}">
+                        <a href="{$r.link}" title="{$r.title}">
                 <img src="{$r.pic}" alt="{$r.title}">
                 </a>
                     </div>
@@ -25,10 +25,10 @@
         <div class="wap-banner">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 2" key="n">
+<YP:list name="slide_data" id="r" limit="6" field="*" where="fid = 2" key="n" order="listorder asc">
                     <!-- start -->
                     <div class="swiper-slide">
-                        <a href="{$r.url}" title="{$r.title}">
+                        <a href="{$r.link}" title="{$r.title}">
                 <img src="{$r.pic}" alt="{$r.title}">
                 </a>
                     </div>
@@ -61,10 +61,10 @@
 
                 <!-- product -->
                 <div class="index-product clearfix">
-                    <YP:list name="slide_data" id="r" limit="9" field="*" where="fid = 3" key="n">
+                    <YP:list name="slide_data" id="r" limit="9" field="*" where="fid = 3" key="n" order="listorder asc">
                     <!-- start -->
                     
-                    <a href="{$r.url}" title="{$r.title}" class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="{$r.link}" title="{$r.title}" class="col-lg-4 col-md-4 col-sm-6">
                         <img src="{$r.pic}" alt="{$r.title}">
                         {if $r['description']}
                         <div class="boxs">

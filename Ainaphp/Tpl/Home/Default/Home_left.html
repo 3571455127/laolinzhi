@@ -1,11 +1,25 @@
 <div class="left col-lg-4 col-md-4 col-sm-4">
-                    <form action="/search/product" method="GET">
-                        <input class="search" type="search" placeholder="Search..." name="keyword">
-                        <button type="submit">
+                    <form id="search_form2" action="{:U('Search/index')}" method="post">
+                        <input class="search" type="search"  id="search2" value="{$keyword}" placeholder="Search..." name="keyword">
+                        <button type="submit" id="submit2">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </form>
-
+<script>
+                                    $(function () {
+                                        $('#submit2').click(function () {
+                                            //            alert(1);
+                                            var search2 = $('#search2').val();
+                                            if (search2 == '') {
+                                                alert("Please enter the search content");
+                                                $('#search2').focus();
+                                                return false;
+                                            } else {
+                                                $('#search_form2').submit();
+                                            }
+                                        })
+                                    })
+                                </script>
                     <h2 class="dg-sider-title">{$Categorys[$bcid][catname]}</h2>
 
                     <div class="sidebar-nav">

@@ -1,58 +1,149 @@
 <div class="nav-right col-lg-3 col-md-3 col-sm-12">
+
                         <!-- 搜索 -->
+
                         <div class="aside-search">
+
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+
+                    <form id="search_form2" action="{:U('Search/index')}" method="post">
+
+                                <input type="text" class="form-control" placeholder="Search for..."  id="search2" value="{$keyword}" name="keyword">
+
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default btn-primary" type="button">button</button>
+
+                                    <button class="btn btn-default btn-primary" type="button" id="submit2">button</button>
+
                                 </span>
+
+                                 </form>
+
+                                <script>
+
+                                    $(function () {
+
+                                        $('#submit2').click(function () {
+
+                                            //            alert(1);
+
+                                            var search2 = $('#search2').val();
+
+                                            if (search2 == '') {
+
+                                                alert("Please enter the search content");
+
+                                                $('#search2').focus();
+
+                                                return false;
+
+                                            } else {
+
+                                                $('#search_form2').submit();
+
+                                            }
+
+                                        })
+
+                                    })
+
+                                </script>
+
                             </div>
+
                         </div>
 
+
+
                         <div class="sidebar-nav">
+
                             <ul class="first-nav">
+
                               <YP:subcat catid="0" id="r" where="listorder asc" limit="100" key="n">    
+
                                 <if condition="$r[catname] neq 'THANKS'  && !in_array($r[id],array(77,112,113,78,194,159,160,161,162,163,189,190,191,192,193))">                       
+
                             
-                            <li class="{if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}javascript:;{$r[id]}{else}{$r.url}{/if}" >{$r.catname}
+
+                            <li class="{if $bcid==$r[id]}active{/if}"><a href="{if $r[child]==1}javascript:;{else}{$r.url}{/if}" >{$r.catname}
+
                                    {if $r[child]==1} <i class="fa fa-angle-right"></i>{/if}
+
                                 </a>
+
                                  {if $r[child] == 1}
+
                                     <ul class="second-nav">
+
                                         <YP:subcat catid="$r[id]" id="rs">
+
                                         <li class="{if $parentid==$rs[id]}afinve active{/if} {if $catid==$rs[id]}active{/if}">
-                                            <a href="{if $rs[child]==1}javascript:;{$rs[id]}{else}{$rs.url}{/if}">{$rs.catname}
+
+                                            <a href="{if $rs[child]==1}javascript:;{else}{$rs.url}{/if}">{$rs.catname}
+
                                                 {if $rs[child]==1}<i class="fa fa-angle-right"></i>{/if}
+
                                             </a>
+
                                             {if $rs[child]==1}
+
                                             <ul class="three_nav">
+
                                                 <YP:subcat catid="$rs[id]" id="rss" limit="10" key="nnn">
+
                                                 <li>  <a href="{$rss.url}">{$rss.catname}</a> </li>
+
                                                 </YP:subcat>
+
                                             </ul>
+
                                             {/if}
+
                                         </li>
+
                                         </YP:subcat>
+
                                     </ul>
+
                                  {/if}
+
                             </li>
+
                             </if>
+
                             </YP:subcat> 
+
+
 
                             </ul>
 
+
+
                            
+
                         </div>
 
+
+
                         <ul class="digood-related">
+
 <YP:list order="listorder desc" name="Product" id="r" posid="1" limit="5">  
+
                             <li><a href="{$r.url}" title="{$r.title}" class="clearfix">
+
                                     <img class="col-lg-4 col-md-4 col-sm-4 col-xs-4" src="{$r.thumb}" alt="{$r.title}">
+
                                     <h6 class="col-lg-8 col-md-8 col-sm-8 col-xs-8">{$r.title|str_cut=###,40,'...'}</h6>
+
                                 </a>
+
                             </li>
+
 </YP:list>
 
+
+
                         </ul>
+
+
 
                     </div>
