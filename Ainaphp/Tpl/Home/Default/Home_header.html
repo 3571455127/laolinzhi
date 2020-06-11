@@ -33,11 +33,13 @@
     <script src="__PUBLIC__/www/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/www/js/jquery.fancybox.min.js"></script>
     <script src="__PUBLIC__/www/js/main.js"></script>
-<script language="Javascript">
-document.oncontextmenu=new Function("event.returnValue=false");
-document.onselectstart=new Function("event.returnValue=false");
-document.oncontextmenu=function(e){return false;}
-</script>
+    <script language="Javascript">
+        document.oncontextmenu = new Function("event.returnValue=false");
+        document.onselectstart = new Function("event.returnValue=false");
+        document.oncontextmenu = function (e) {
+            return false;
+        }
+    </script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
@@ -173,20 +175,20 @@ document.oncontextmenu=function(e){return false;}
                 </div>
                 <div class="nav_right">
                     <div class="nav_rin">
-                      
+
 
                         <ul class="menu_ul clearfix">
                             <li class="{if MODULE_NAME == 'Index'}active{/if}"><a href="/index.php?l={$Think.LANG_SET}"
                                     title="">HOME</a></li>
                             <YP:subcat catid="0" id="r" where="listorder asc" limit="150" key="n">
                                 <if condition="$r[catname] neq 'THANKS'  && $r[id] neq 194">
-                                    <li class="{if $bcid==$r[id]}active{/if} active menu_li" >
+                                    <li class="{if $bcid==$r[id]}active{/if} active menu_li">
                                         <a href="{$r.url}" title="{$r.catname}">{$r.catname}</a>
                                         {if $r[child] == 1}<span class="arrow"><i></i></span>{/if}
                                         {if $r[child] == 1}
                                         <ul class="mt_ul">
                                             <YP:subcat catid="$r[id]" where="listorder asc" id="rs">
-                                                <li  class="menu_li arrow2">
+                                                <li class="menu_li arrow2">
                                                     <a href="{$rs.url}" title="{$rs.catname}">{$rs.catname}
                                                     </a>
                                                     {if $rs[child] == 1}<span class="arrow"><i></i></span>{/if}
@@ -217,8 +219,7 @@ document.oncontextmenu=function(e){return false;}
             <div class="header">
                 <div class="h_in">
                     <div class="h_left">
-                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"
-                                style="width: 230px;"></a>
+                        <a href="/index.php?l={$Think.LANG_SET}" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"></a>
                     </div>
                     <div class="h_right">
                         <i class="fa fa-list-ul" aria-hidden="true"></i>

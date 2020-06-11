@@ -957,21 +957,9 @@ header .nav .second-nav li:hover .fa {
 .index .index-about .content {
     margin-top: 50px;
     position: relative;
-    /* display: flex;
-    align-items: center; */
 }
 
-.index .index-about .txt {
-    width: 55%;
-    background-color: #fff;
-    color: #144090;
-    padding: 15px 25px;
-    z-index: 999;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 42%;
-}
+
 
 .index .index-about .txt p {
     line-height: 1.4;
@@ -3044,7 +3032,8 @@ hr {
     font-size: 14px;
 }
 
-.dg-des-content tr td {
+.dg-des-content tr td,
+.tab-content tr td {
     height: auto;
     padding: 4px 8px !important;
     line-height: 1.42857143;
@@ -3076,6 +3065,7 @@ hr {
 
 .product-show .right .layout-content {
     font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .product-show .right .layout-content .nav-tabs a {
@@ -3210,11 +3200,24 @@ header .wap-nav {
         padding: 12px 10px;
         font-size: 14px;
     }
+
 }
 
 
 
-@media screen and (max-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+    .index .index-about .txt {
+        width: 55%;
+        background-color: #fff;
+        color: #144090;
+        padding: 15px 25px;
+        z-index: 999;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 42%;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
@@ -3266,14 +3269,21 @@ header .wap-nav {
 
     .index .index-about .content {
         display: block;
-        padding: 20px 0;
+        padding-top: 20px;
+        margin-top: 0;
     }
 
     .index .index-about .txt {
-        left: 0;
-        margin: 0 15px;
+        margin: 15px;
+        padding: 15px;
+        background-color: #fff;
+        color: #144090;
     }
 
+    .index .index-about .txt a {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
 
     .index .index-service .txt ul::after {
         left: 48px;
@@ -3342,7 +3352,7 @@ header .wap-nav {
     }
 
     .h_logo img {
-        width: 100%;
+        width: 120px;
         height: auto;
     }
 
@@ -3563,5 +3573,55 @@ header .wap-nav {
 
     .index-contact-item-block .index-contact-item .img-block img {
         width: 25px;
+    }
+
+    .footer-share {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-logo {
+        display: block;
+        text-align: center;
+    }
+
+    footer .footer-nav p {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .ljbg {
+        margin-top: 82px;
+    }
+
+    .modal .modal-content {
+        margin-top: 0;
+    }
+
+    .news .left .time span:last-child {
+        color: #144090;
+    }
+
+    .news .left .time span:last-child::before {
+        width: 100%;
+    }
+
+    .about .counter .num-box .num {
+        font-size: 22px;
+    }
+
+    .num-box>div {
+        margin-bottom: 10px;
+    }
+
+    footer .footer-nav {
+        padding-bottom: 20px;
+    }
+
+    .product-recommend ,
+    footer .footer-nav .copy{
+        padding: 0 15px !important;
     }
 }
