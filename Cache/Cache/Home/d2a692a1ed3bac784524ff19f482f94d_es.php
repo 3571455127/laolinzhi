@@ -38,7 +38,7 @@
 <body style="overflow:-Scroll;overflow-y:hidden">
     <h1 style="display:none;"><?php if(MODULE_NAME !== 'Index') : echo ($seo_description); else : echo ($seo_description); endif;?></h1>
 
-    <header>
+    <header class="">
         <div class="top-bar">
             <div class="container">
                 <div class="row">
@@ -68,7 +68,7 @@
                                     <form id="search_form" action="<?php echo U('Search/index');?>" method="post">
                                         <!--<input type="text" placeholder="Search">-->
                                         <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
-                                        <input type="text" name="keyword" placeholder="prodcut name" id="search"
+                                        <input type="text" name="keyword" placeholder="Prodcut name" id="search"
                                             value="<?php echo ($keyword); ?>">
                                         <input type="hidden" name="module" value="Product">
                                     </form>
@@ -231,116 +231,129 @@
     </header>
 
 
-    <!-- 路径导航 -->
-    <div class="ljbg">
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Product</li>
-                </ol>
+    <div class="banner">
+        <!-- pc -->
+        <div class="pc-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=2 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    <div class="swiper-slide">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
+                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                </a>
+                    </div>
+                    <!-- end --><?php endforeach; endif;?>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!-- wap -->
+        <div class="wap-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=2 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    <div class="swiper-slide">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
+                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                </a>
+                    </div>
+                    <!-- end --><?php endforeach; endif;?>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
     </div>
 
-    <div class="contact">
+    <div class="index">
         <div class="container">
             <div class="row">
-                <div class="left col-lg-8 col-md-8 col-sm-8">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                data-toggle="tab">New York</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                                data-toggle="tab">London</a></li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
-                                data-toggle="tab">Sydney</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab"
-                                data-toggle="tab">Paris</a></li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home">
-                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
-                            <div class="col-lg-6  col-md-6  col-sm-6">
-                                <ul>
-                                    <li>
-                                        <strong>Address:</strong>
-                                        <span><?php echo ($address); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Phone:</strong>
-                                        <span> <?php echo ($phone); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Fax:</strong>
-                                        <span><?php echo ($domestic_fax); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong>
-                                        <span> <?php echo ($email); ?></span>
-                                    </li>
-<!--                                    <li>
-                                        <strong>Web:</strong>
-                                        <span> http://buildpro-construction.com</span>
-                                    </li>-->
-                                    <li>
-                                        <strong>Open</strong>
-                                        <span>Sunday - Friday 08:00 - 18:00</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">
-                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
-                            <div class="col-lg-6  col-md-6  col-sm-6">
-                                <ul>
-                                    <li>
-                                        <strong>Address:</strong>
-                                        <span><?php echo ($address); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Phone:</strong>
-                                        <span> <?php echo ($phone); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Fax:</strong>
-                                        <span><?php echo ($domestic_fax); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong>
-                                        <span> <?php echo ($email); ?></span>
-                                    </li>
-<!--                                    <li>
-                                        <strong>Web:</strong>
-                                        <span> http://buildpro-construction.com</span>
-                                    </li>-->
-                                    <li>
-                                        <strong>Open</strong>
-                                        <span>Sunday - Friday 08:00 - 18:00</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
-                    </div>
-
+                <!-- new -->
+                <div class="new clearfix">
+                     
+                    
                 </div>
 
-                <div class="right col-lg-4 col-md-4 col-sm-4">
-                    <h5>Send Us Message</h5>
-                    <form name="form" method="post" onsubmit="return beforeSubmit2(this);"
-                        action="index.php?g=Home&a=message">
-                        <input type="text" name="name" id="" placeholder="Your Name">
-                        <input type="text" name="email" id="" placeholder="Your Email">
-                        <input type="text" name="phone" id="" placeholder="Your Phone">
-                        <textarea placeholder="Your Message" name="message" id="" cols="30" rows="10"></textarea>
-                        <input type="submit" value="Submit Form" class="submit-btn">
-                    </form>
+                <!-- product -->
+                <div class="index-product clearfix">
+                    <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=2 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    
+                    <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                        <?php if($r['description']) : ?>
+                        <div class="boxs">
+                            <?php echo ($r["description"]); ?>
+                        </div>
+                        <?php else :?>
+                        <h5><?php echo ($r["title"]); ?></h5>
+                        <?php endif;?>
+                    </a>
+                    
+                    <!-- end --><?php endforeach; endif;?>
                 </div>
             </div>
         </div>
+
+        <!-- about -->
+        <div class="index-about">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 113','sycont');?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service -->
+        <div class="index-service">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 77','sycont');?>                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="index-certificate">
+            <div class="container">
+                <div class="row">
+                    <h3>Certificate</h3>
+                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+                    <!-- pc -->
+                    <div class="certificate-pc">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+                            </div>
+
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <!-- wap -->
+                    <div class="certificate-wap">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- wap -->
+
+        </div>
+
+
     </div>
 
 <footer>

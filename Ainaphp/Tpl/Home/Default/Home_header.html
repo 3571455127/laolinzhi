@@ -33,6 +33,11 @@
     <script src="__PUBLIC__/www/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/www/js/jquery.fancybox.min.js"></script>
     <script src="__PUBLIC__/www/js/main.js"></script>
+<script language="Javascript">
+document.oncontextmenu=new Function("event.returnValue=false");
+document.onselectstart=new Function("event.returnValue=false");
+document.oncontextmenu=function(e){return false;}
+</script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
@@ -168,30 +173,7 @@
                 </div>
                 <div class="nav_right">
                     <div class="nav_rin">
-                        <!-- <ul class="menu_ul">
-                            <li><a href="" title="">HOME</a></li>
-                            <li class="active menu_li">
-                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
-                                <span class="arrow"><i></i></span>
-                                <ul class="mt_ul">
-                                    <li><a href="" title="">Pocket Spring Machine</a></li>
-
-                                    <li class="menu_li arrow2">
-                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
-                                            Machine</a>
-                                        <span class="arrow"><i></i></span>
-                                        <ul class="mt_ul">
-                                            <li><a href="">test1</a></li>
-                                            <li><a href="">test2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
-                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="" title="">PU FOAM MACHINE</a></li>
-                        </ul> -->
+                      
 
                         <ul class="menu_ul clearfix">
                             <li class="{if MODULE_NAME == 'Index'}active{/if}"><a href="/index.php?l={$Think.LANG_SET}"
@@ -235,7 +217,7 @@
             <div class="header">
                 <div class="h_in">
                     <div class="h_left">
-                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
+                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"
                                 style="width: 230px;"></a>
                     </div>
                     <div class="h_right">

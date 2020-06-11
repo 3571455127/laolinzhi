@@ -33,6 +33,11 @@
     <script src="__PUBLIC__/www/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/www/js/jquery.fancybox.min.js"></script>
     <script src="__PUBLIC__/www/js/main.js"></script>
+<script language="Javascript">
+document.oncontextmenu=new Function("event.returnValue=false");
+document.onselectstart=new Function("event.returnValue=false");
+document.oncontextmenu=function(e){return false;}
+</script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
@@ -160,30 +165,7 @@
                 </div>
                 <div class="nav_right">
                     <div class="nav_rin">
-                        <!-- <ul class="menu_ul">
-                            <li><a href="" title="">HOME</a></li>
-                            <li class="active menu_li">
-                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
-                                <span class="arrow"><i></i></span>
-                                <ul class="mt_ul">
-                                    <li><a href="" title="">Pocket Spring Machine</a></li>
-
-                                    <li class="menu_li arrow2">
-                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
-                                            Machine</a>
-                                        <span class="arrow"><i></i></span>
-                                        <ul class="mt_ul">
-                                            <li><a href="">test1</a></li>
-                                            <li><a href="">test2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
-                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="" title="">PU FOAM MACHINE</a></li>
-                        </ul> -->
+                      
 
                         <ul class="menu_ul clearfix">
                             <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
@@ -219,7 +201,7 @@
             <div class="header">
                 <div class="h_in">
                     <div class="h_left">
-                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
+                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"
                                 style="width: 230px;"></a>
                     </div>
                     <div class="h_right">
@@ -238,7 +220,7 @@
                 <div class="swiper-wrapper">
 <?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
                 <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                 </a>
                     </div>
@@ -256,7 +238,7 @@
                 <div class="swiper-wrapper">
 <?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
                 <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                 </a>
                     </div>
@@ -288,7 +270,7 @@
                 <div class="index-product clearfix">
                     <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=1 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
                         <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                         <?php if($r['description']) : ?>
                         <div class="boxs">

@@ -1,17 +1,4 @@
-
-
-    <!-- 路径导航 -->
-    <div class="ljbg">
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Product</li>
-                </ol>
-            </div>
-        </div>
-
-    </div>
+<include file="Home:path" />
 
     <div class="contact">
         <div class="container">
@@ -101,10 +88,11 @@
                     <h5>Send Us Message</h5>
                     <form name="form" method="post" onsubmit="return beforeSubmit2(this);"
                         action="index.php?g=Home&a=message">
-                        <input type="text" name="name" id="" placeholder="Your Name">
-                        <input type="text" name="email" id="" placeholder="Your Email">
+            <input name="forward" type="hidden" value="{$_SERVER['SERVER_NAME']}{if $catid}/index.php?m={$Categorys[$catid]['module']}&a=index&id={$catid}{else}/index.php{/if}"/>
+                        <input type="text" name="name" id="" placeholder="* Your Name">
+                        <input type="text" name="email" id="" placeholder="* Your Email">
                         <input type="text" name="phone" id="" placeholder="Your Phone">
-                        <textarea placeholder="Your Message" name="message" id="" cols="30" rows="10"></textarea>
+                        <textarea placeholder="* Your Message" name="message" id="" cols="30" rows="10"></textarea>
                         <input type="submit" value="Submit Form" class="submit-btn">
                     </form>
                 </div>

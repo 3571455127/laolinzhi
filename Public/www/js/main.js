@@ -290,6 +290,17 @@ $(function () {
 			"right": "-100%"
 		}, 200);
 	})
+	// if (screen.width <= "1366") {
+	// 	$("header").addClass("width1366");
+	// } else {
+	// 	$("header").removeClass("width1366");
+	// }
+	// var windowWidth = $(window).width();
+	// if (windowWidth <= 1366) {
+	// 	$("header").addClass("width1366");
+	// } else {
+	// 	$("header").removeClass("width1366");
+	// }
 
 })
 var submitcount2 = 0;

@@ -38,7 +38,7 @@
 <body style="overflow:-Scroll;overflow-y:hidden">
     <h1 style="display:none;"><?php if(MODULE_NAME !== 'Index') : echo ($seo_description); else : echo ($seo_description); endif;?></h1>
 
-    <header>
+    <header class="">
         <div class="top-bar">
             <div class="container">
                 <div class="row">
@@ -68,7 +68,7 @@
                                     <form id="search_form" action="<?php echo U('Search/index');?>" method="post">
                                         <!--<input type="text" placeholder="Search">-->
                                         <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
-                                        <input type="text" name="keyword" placeholder="prodcut name" id="search"
+                                        <input type="text" name="keyword" placeholder="Prodcut name" id="search"
                                             value="<?php echo ($keyword); ?>">
                                         <input type="hidden" name="module" value="Product">
                                     </form>
@@ -348,7 +348,7 @@
                             </div>
                             <hr>
                             <div class="dg-des-buttons">
-                                <a href="#" class="dg-btn">Contact Us</a>
+                                <a href="/contact.html" class="dg-btn">Contact Us</a>
                                 <a href="#" class="dg-btn dg-theme">Send inquiry</a>
                             </div>
                         </div>
