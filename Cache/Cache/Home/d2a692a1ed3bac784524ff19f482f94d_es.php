@@ -33,19 +33,12 @@
     <script src="__PUBLIC__/www/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/www/js/jquery.fancybox.min.js"></script>
     <script src="__PUBLIC__/www/js/main.js"></script>
-    <script language="Javascript">
-        document.oncontextmenu = new Function("event.returnValue=false");
-        document.onselectstart = new Function("event.returnValue=false");
-        document.oncontextmenu = function (e) {
-            return false;
-        }
-    </script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
     <h1 style="display:none;"><?php if(MODULE_NAME !== 'Index') : echo ($seo_description); else : echo ($seo_description); endif;?></h1>
 
-    <header>
+    <header class="">
         <div class="top-bar">
             <div class="container">
                 <div class="row">
@@ -75,7 +68,7 @@
                                     <form id="search_form" action="<?php echo U('Search/index');?>" method="post">
                                         <!--<input type="text" placeholder="Search">-->
                                         <img src="__PUBLIC__/www/images/search.png" alt="" class="searchs">
-                                        <input type="text" name="keyword" placeholder="prodcut name" id="search"
+                                        <input type="text" name="keyword" placeholder="Prodcut name" id="search"
                                             value="<?php echo ($keyword); ?>">
                                         <input type="hidden" name="module" value="Product">
                                     </form>
@@ -167,17 +160,40 @@
                 </div>
                 <div class="nav_right">
                     <div class="nav_rin">
+                        <!-- <ul class="menu_ul">
+                            <li><a href="" title="">HOME</a></li>
+                            <li class="active menu_li">
+                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
+                                <span class="arrow"><i></i></span>
+                                <ul class="mt_ul">
+                                    <li><a href="" title="">Pocket Spring Machine</a></li>
 
+                                    <li class="menu_li arrow2">
+                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
+                                            Machine</a>
+                                        <span class="arrow"><i></i></span>
+                                        <ul class="mt_ul">
+                                            <li><a href="">test1</a></li>
+                                            <li><a href="">test2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
+                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="" title="">PU FOAM MACHINE</a></li>
+                        </ul> -->
 
                         <ul class="menu_ul clearfix">
                             <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
                                     title="">HOME</a></li>
-                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li">
+                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li" >
                                         <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
                                         <?php if($r[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
                                         <?php if($r[child] == 1) : ?>
                                         <ul class="mt_ul">
-                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li class="menu_li arrow2">
+                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li  class="menu_li arrow2">
                                                     <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
                                                     </a>
                                                     <?php if($rs[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
@@ -203,7 +219,8 @@
             <div class="header">
                 <div class="h_in">
                     <div class="h_left">
-                        <a href="/index.php?l=<?php echo (LANG_SET); ?>" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"></a>
+                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
+                                style="width: 230px;"></a>
                     </div>
                     <div class="h_right">
                         <i class="fa fa-list-ul" aria-hidden="true"></i>
@@ -212,116 +229,131 @@
             </div>
         </div>
     </header>
-    <!-- 路径导航 -->
-    <div class="ljbg">
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="/index.php?l=<?php echo (LANG_SET); ?>">Home</a></li>
-                    <li class="active"><?php echo ($catname); ?></li>
-                </ol>
+
+
+    <div class="banner">
+        <!-- pc -->
+        <div class="pc-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=2 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    <div class="swiper-slide">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
+                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                </a>
+                    </div>
+                    <!-- end --><?php endforeach; endif;?>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
+
+        <!-- wap -->
+        <div class="wap-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+<?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=2 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    <div class="swiper-slide">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
+                <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                </a>
+                    </div>
+                    <!-- end --><?php endforeach; endif;?>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="contact">
+    <div class="index">
         <div class="container">
             <div class="row">
-                <div class="left col-lg-8 col-md-8 col-sm-8">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                data-toggle="tab">New York</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                                data-toggle="tab">London</a></li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
-                                data-toggle="tab">Sydney</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab"
-                                data-toggle="tab">Paris</a></li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home">
-                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
-                            <div class="col-lg-6  col-md-6  col-sm-6">
-                                <ul>
-                                    <li>
-                                        <strong>Address:</strong>
-                                        <span><?php echo ($address); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Phone:</strong>
-                                        <span> <?php echo ($phone); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Fax:</strong>
-                                        <span><?php echo ($domestic_fax); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong>
-                                        <span> <?php echo ($email); ?></span>
-                                    </li>
-<!--                                    <li>
-                                        <strong>Web:</strong>
-                                        <span> http://buildpro-construction.com</span>
-                                    </li>-->
-                                    <li>
-                                        <strong>Open</strong>
-                                        <span>Sunday - Friday 08:00 - 18:00</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">
-                            <div class="col-lg-6 col-md-6  col-sm-6"></div>
-                            <div class="col-lg-6  col-md-6  col-sm-6">
-                                <ul>
-                                    <li>
-                                        <strong>Address:</strong>
-                                        <span><?php echo ($address); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Phone:</strong>
-                                        <span> <?php echo ($phone); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Fax:</strong>
-                                        <span><?php echo ($domestic_fax); ?></span>
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong>
-                                        <span> <?php echo ($email); ?></span>
-                                    </li>
-<!--                                    <li>
-                                        <strong>Web:</strong>
-                                        <span> http://buildpro-construction.com</span>
-                                    </li>-->
-                                    <li>
-                                        <strong>Open</strong>
-                                        <span>Sunday - Friday 08:00 - 18:00</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
-                    </div>
-
+                <!-- new -->
+                <div class="new clearfix">
+                     
+                    
                 </div>
 
-                <div class="right col-lg-4 col-md-4 col-sm-4">
-                    <h5>Send Us Message</h5>
-                    <form name="form" method="post" onsubmit="return beforeSubmit2(this);"
-                        action="index.php?g=Home&a=message">
-            <input name="forward" type="hidden" value="<?php echo ($_SERVER['SERVER_NAME']); if($catid) : ?>/index.php?m=<?php echo ($Categorys[$catid]['module']); ?>&a=index&id=<?php echo ($catid); else :?>/index.php<?php endif;?>"/>
-                        <input type="text" name="name" id="" placeholder="* Your Name">
-                        <input type="text" name="email" id="" placeholder="* Your Email">
-                        <input type="text" name="phone" id="" placeholder="Your Phone">
-                        <textarea placeholder="* Your Message" name="message" id="" cols="30" rows="10"></textarea>
-                        <input type="submit" value="Submit Form" class="submit-btn">
-                    </form>
+                <!-- product -->
+                <div class="index-product clearfix">
+                    <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=2 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
+                    
+                    <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
+                        <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
+                        <?php if($r['description']) : ?>
+                        <div class="boxs">
+                            <?php echo ($r["description"]); ?>
+                        </div>
+                        <?php else :?>
+                        <h5><?php echo ($r["title"]); ?></h5>
+                        <?php endif;?>
+                    </a>
+                    
+                    <!-- end --><?php endforeach; endif;?>
                 </div>
             </div>
         </div>
+
+        <!-- about -->
+        <div class="index-about">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 113','sycont');?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service -->
+        <div class="index-service">
+            <div class="container">
+                <div class="row">
+<?php getcatvar('page','id = 77','sycont');?>                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="index-certificate">
+            <div class="container">
+                <div class="row">
+                    <h3>Certificate</h3>
+                    <div class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+                    <!-- pc -->
+                    <div class="certificate-pc">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+                            </div>
+
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <!-- wap -->
+                    <div class="certificate-wap">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- wap -->
+
+        </div>
+
+
     </div>
 
 <footer>
@@ -340,7 +372,7 @@
                                 </ul>
                                 <?php endif;?>
                             </div><?php endif; endif; endif; endforeach;?>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 clearfix">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
                         <a href="" class="footer-logo"><img src="__PUBLIC__/www/images/footer-logo.png" alt=""></a>
                         <p><?php echo ($name); ?></p>
                         <ul class="footer-share">
@@ -433,13 +465,13 @@
             </a>
             <div class="index-contact-qr-show" style="display: none;">
                 <div class="img-block">
-                    <img src="__PUBLIC__/www/images/wechat11.jpg" alt="wechat">
+                    <img src="__PUBLIC__/www/images/wechat11.png" alt="wechat">
                 </div>
             </div>
         </div>
 
         <div class="index-contact-item-block index-contact-in transition index-contact-tel">
-            <a href="tel:<?php echo ($guhua); ?>" target="_blank" class="one-pan-link-mark">
+            <a href="tel:0757-83680580" target="_blank" class="one-pan-link-mark">
                 <div class="index-contact-item flex-col">
                     <div class="img-block">
                         <img src="__PUBLIC__/www/images/dianhua.png" alt="">
@@ -447,7 +479,7 @@
 
                 </div>
                 <div class="index-contact-item-in">
-                    <p class="index-contact-item-in-p transition"><?php echo ($guhua); ?></p>
+                    <p class="index-contact-item-in-p transition">0757-83680580</p>
                 </div>
             </a>
         </div>
@@ -460,7 +492,7 @@
                     </div>
                 </div>
                 <div class="index-contact-item-in">
-                    <p class="index-contact-item-in-p transition zixun_count" zixun="bd">Inquire Now</p>
+                    <p class="index-contact-item-in-p transition zixun_count" zixun="bd">建站在线咨询</p>
                 </div>
             </a>
 

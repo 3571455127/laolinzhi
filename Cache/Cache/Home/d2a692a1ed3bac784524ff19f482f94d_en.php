@@ -33,6 +33,13 @@
     <script src="__PUBLIC__/www/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/www/js/jquery.fancybox.min.js"></script>
     <script src="__PUBLIC__/www/js/main.js"></script>
+    <script language="Javascript">
+        document.oncontextmenu = new Function("event.returnValue=false");
+        document.onselectstart = new Function("event.returnValue=false");
+        document.oncontextmenu = function (e) {
+            return false;
+        }
+    </script>
 </head>
 
 <body style="overflow:-Scroll;overflow-y:hidden">
@@ -160,40 +167,17 @@
                 </div>
                 <div class="nav_right">
                     <div class="nav_rin">
-                        <!-- <ul class="menu_ul">
-                            <li><a href="" title="">HOME</a></li>
-                            <li class="active menu_li">
-                                <a href="" class="menu_a one-pan-link-mark">MATTRESS MACHIN</a>
-                                <span class="arrow"><i></i></span>
-                                <ul class="mt_ul">
-                                    <li><a href="" title="">Pocket Spring Machine</a></li>
 
-                                    <li class="menu_li arrow2">
-                                        <a href="/mobile.php/about.html" class="menu_a one-pan-link-mark">Bonnell Spring
-                                            Machine</a>
-                                        <span class="arrow"><i></i></span>
-                                        <ul class="mt_ul">
-                                            <li><a href="">test1</a></li>
-                                            <li><a href="">test2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="" title="">Continuous(Superlastic) Spring Machine</a></li>
-                                    <li><a href="" title="">Mattress Quilting Machine</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="" title="">PU FOAM MACHINE</a></li>
-                        </ul> -->
 
                         <ul class="menu_ul clearfix">
                             <li class="<?php if(MODULE_NAME == 'Index') : ?>active<?php endif;?>"><a href="/index.php?l=<?php echo (LANG_SET); ?>"
                                     title="">HOME</a></li>
-                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li" >
+                            <?php $n=0;foreach($Categorys as $key=>$r):if($n<150) :if( intval(0)==$r["parentid"] ) :++$n; if($r[catname] != 'THANKS' && $r[id] != 194): ?><li class="<?php if($bcid==$r[id]) : ?>active<?php endif;?> active menu_li">
                                         <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["catname"]); ?>"><?php echo ($r["catname"]); ?></a>
                                         <?php if($r[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
                                         <?php if($r[child] == 1) : ?>
                                         <ul class="mt_ul">
-                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li  class="menu_li arrow2">
+                                            <?php $n=0;foreach($Categorys as $key=>$rs):if($n<99) :if( intval($r[id])==$rs["parentid"] ) :++$n;?><li class="menu_li arrow2">
                                                     <a href="<?php echo ($rs["url"]); ?>" title="<?php echo ($rs["catname"]); ?>"><?php echo ($rs["catname"]); ?>
                                                     </a>
                                                     <?php if($rs[child] == 1) : ?><span class="arrow"><i></i></span><?php endif;?>
@@ -219,8 +203,7 @@
             <div class="header">
                 <div class="h_in">
                     <div class="h_left">
-                        <a href="/mobile.php" class="h_logo"><img src="__PUBLIC__/www/images/logo.png"
-                                style="width: 230px;"></a>
+                        <a href="/index.php?l=<?php echo (LANG_SET); ?>" class="h_logo"><img src="__PUBLIC__/www/images/wap-logo.png"></a>
                     </div>
                     <div class="h_right">
                         <i class="fa fa-list-ul" aria-hidden="true"></i>
@@ -238,7 +221,7 @@
                 <div class="swiper-wrapper">
 <?php  $_result=M("slide_data")->field("*")->where("fid = 1 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
                 <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                 </a>
                     </div>
@@ -256,7 +239,7 @@
                 <div class="swiper-wrapper">
 <?php  $_result=M("slide_data")->field("*")->where("fid = 2 and lang=1 AND status=1 ")->order("id desc")->limit("6")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     <div class="swiper-slide">
-                        <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>">
+                        <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>">
                 <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                 </a>
                     </div>
@@ -288,7 +271,7 @@
                 <div class="index-product clearfix">
                     <?php  $_result=M("slide_data")->field("*")->where("fid = 3 and lang=1 AND status=1 ")->order("id desc")->limit("9")->select();; if ($_result): $n=0;foreach($_result as $key=>$r):++$n;$mod = ($n % 2 );?><!-- start -->
                     
-                    <a href="<?php echo ($r["url"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="<?php echo ($r["link"]); ?>" title="<?php echo ($r["title"]); ?>" class="col-lg-4 col-md-4 col-sm-6">
                         <img src="<?php echo ($r["pic"]); ?>" alt="<?php echo ($r["title"]); ?>">
                         <?php if($r['description']) : ?>
                         <div class="boxs">
@@ -387,7 +370,7 @@
                                 </ul>
                                 <?php endif;?>
                             </div><?php endif; endif; endif; endforeach;?>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 clearfix">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 clearfix">
                         <a href="" class="footer-logo"><img src="__PUBLIC__/www/images/footer-logo.png" alt=""></a>
                         <p><?php echo ($name); ?></p>
                         <ul class="footer-share">
@@ -480,13 +463,13 @@
             </a>
             <div class="index-contact-qr-show" style="display: none;">
                 <div class="img-block">
-                    <img src="__PUBLIC__/www/images/wechat11.png" alt="wechat">
+                    <img src="__PUBLIC__/www/images/wechat11.jpg" alt="wechat">
                 </div>
             </div>
         </div>
 
         <div class="index-contact-item-block index-contact-in transition index-contact-tel">
-            <a href="tel:0757-83680580" target="_blank" class="one-pan-link-mark">
+            <a href="tel:<?php echo ($guhua); ?>" target="_blank" class="one-pan-link-mark">
                 <div class="index-contact-item flex-col">
                     <div class="img-block">
                         <img src="__PUBLIC__/www/images/dianhua.png" alt="">
@@ -494,7 +477,7 @@
 
                 </div>
                 <div class="index-contact-item-in">
-                    <p class="index-contact-item-in-p transition">0757-83680580</p>
+                    <p class="index-contact-item-in-p transition"><?php echo ($guhua); ?></p>
                 </div>
             </a>
         </div>
@@ -507,7 +490,7 @@
                     </div>
                 </div>
                 <div class="index-contact-item-in">
-                    <p class="index-contact-item-in-p transition zixun_count" zixun="bd">建站在线咨询</p>
+                    <p class="index-contact-item-in-p transition zixun_count" zixun="bd">Inquire Now</p>
                 </div>
             </a>
 
